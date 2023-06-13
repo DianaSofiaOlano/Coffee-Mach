@@ -1,18 +1,20 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 import com.zeroc.Ice.Current;
 
 import servicios.BrokerService;
 
 public class BrokerI implements BrokerService {
 
-  @Override
-  public void locateClient(String clientName, Current current) {
-    System.out.println("LocateClient: " + clientName);
-  }
+  private ArrayList<ServerServicePrx> servers;
+  private ArrayList<SubscriberServicePrx> clients;
 
-  @Override
-  public void locateServer(String serverName, Current current) {
-    System.out.println("LocateServer: " + serverName);
-  }
+  private ServerServicePrx selectServer() {
+        Random random = new Random();
+        int index = random.nextInt(servers.size());
+        return servers.get(index);
+   }
 
   @Override
   public void sendRequest(String clientName, String serverName, String request, Current current) {
@@ -26,7 +28,8 @@ public class BrokerI implements BrokerService {
 
   @Override
   public void registerServer(String serverName, Current current) {
-    System.out.println("RegisterServer: " + serverName);
+    ServerServicePrx server = ServerServicePrx.checkedCast(current.con);
+    servers.put(serverName, server);
   }
 
   @Override

@@ -8,6 +8,7 @@ public class Broker {
             com.zeroc.Ice.Object object = new BrokerI();
             adapter.add(object, com.zeroc.Ice.Util.stringToIdentity("SimplePrinter"));
             adapter.activate();
+            
             communicator.waitForShutdown();
         }
     }

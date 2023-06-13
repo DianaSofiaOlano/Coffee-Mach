@@ -54,6 +54,7 @@ module servicios{
 
     interface BrokerService{
          void locateClient(string clientName);
+         void locateClient(string clientName);
          void locateServer(string serverName);
          void sendRequest(string clientName, string serverName, string request);
          void sendResponse(string serverName, string clientName, string response);
