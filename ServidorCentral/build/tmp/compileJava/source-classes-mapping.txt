@@ -23,10 +23,10 @@ modelo/ManejadorDatos.java
  modelo.ManejadorDatos
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
-alarma/AlarmasManager.java
- alarma.AlarmasManager
 ventas/VentasManager.java
  ventas.VentasManager
+alarma/AlarmasManager.java
+ alarma.AlarmasManager
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -78,10 +78,17 @@ interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas$3
 modelo/VentasReceta.java
  modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI

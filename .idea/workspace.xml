@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="75b0e1bf-ac1f-4665-bb32-39b95f1f9401" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Broker/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/ServerControl/ConsolaAdministracion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/ServerControl/ServerControl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/ServidorCentral.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/alarma/Alarma.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/alarma/AlarmasManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/comunicacion/ControlComLogistica.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/comunicacionCom.composite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/interfaz/ControladorRecetas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/interfaz/InterfazRecetas.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/AlarmaMaquina.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/AsignacionMaquina.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/ConexionBD.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/Ingrediente.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/ManejadorDatos.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/Maquina.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/Operador.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/Receta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/RecetaIngrediente.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/VentasMaquina.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/modelo/VentasReceta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/receta/ProductoReceta.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/server.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/AlarmaService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/AlarmaServicePrx.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/MapStrIntHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/Moneda.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/RecetaService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/RecetaServicePrx.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/ServicioAbastecimiento.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/ServicioAbastecimientoPrx.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/ServicioComLogistica.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/ServicioComLogisticaPrx.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/StringSeqHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/VentaService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/VentaServicePrx.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/_AlarmaServicePrxI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/_RecetaServicePrxI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/_ServicioAbastecimientoPrxI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/_ServicioComLogisticaPrxI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/servicios/_VentaServicePrxI.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/slice2java.df.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/bin/main/ventas/VentasManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/AlarmaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/AlarmaServicePrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/BrokerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/BrokerServicePrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/MapStrIntHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/Moneda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/RecetaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/RecetaServicePrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/ServicioAbastecimiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/ServicioAbastecimientoPrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/ServicioComLogistica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/ServicioComLogisticaPrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/StringSeqHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/VentaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/VentaServicePrx.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_AlarmaServicePrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_BrokerServicePrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_RecetaServicePrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_ServicioComLogisticaPrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/servicios/_VentaServicePrxI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/generated-src/slice2java.df.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/libs/ServidorCentral.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/libs/checker-qual-3.5.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/libs/codMaquina.cafe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/libs/ice-3.7.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/libs/postgresql-42.3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/resources/main/comunicacionCom.composite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/resources/main/server.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/BrokerI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/ServerControl/ConsolaAdministracion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/ServerControl/ServerControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/ServidorCentral.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/alarma/Alarma.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/alarma/AlarmasManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/comunicacion/ControlComLogistica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/interfaz/ControladorRecetas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/interfaz/InterfazRecetas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/AlarmaMaquina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/AsignacionMaquina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/ConexionBD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/Ingrediente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/ManejadorDatos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/Maquina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/Operador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/Receta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/RecetaIngrediente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/VentasMaquina.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/modelo/VentasReceta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/receta/ProductoReceta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/java/ventas/VentasManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/resources/comunicacionCom.composite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Broker/src/main/resources/server.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeMach.ice" beforeDir="false" afterPath="$PROJECT_DIR$/CoffeMach.ice" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/ServerControl/ConsolaAdministracion.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/ServerControl/ConsolaAdministracion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/alarma/AlarmasManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/alarma/AlarmasManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/modelo/ManejadorDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/classes/java/main/modelo/ManejadorDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/AlarmaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/AlarmaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/AlarmaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/AlarmaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/MapStrIntHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/MapStrIntHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/Moneda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/RecetaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/RecetaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/RecetaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/RecetaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioAbastecimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioAbastecimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioAbastecimientoPrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioAbastecimientoPrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioComLogistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioComLogistica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioComLogisticaPrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/ServicioComLogisticaPrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/StringSeqHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/StringSeqHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/VentaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/VentaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/VentaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_AlarmaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_AlarmaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_RecetaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_RecetaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_ServicioComLogisticaPrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_ServicioComLogisticaPrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_VentaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/servicios/_VentaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/generated-src/slice2java.df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/generated-src/slice2java.df.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/libs/ServidorCentral.jar" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/libs/ServidorCentral.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorCentral/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/ServidorCentral/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/AlarmaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/AlarmaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/AlarmaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/AlarmaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/MapStrIntHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/MapStrIntHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/Moneda.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/Moneda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/RecetaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/RecetaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/RecetaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/RecetaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioAbastecimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioAbastecimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioAbastecimientoPrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioAbastecimientoPrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioComLogistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioComLogistica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioComLogisticaPrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/ServicioComLogisticaPrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/StringSeqHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/StringSeqHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/VentaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/VentaServicePrx.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/VentaServicePrx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_AlarmaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_AlarmaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_RecetaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_RecetaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_ServicioComLogisticaPrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_ServicioComLogisticaPrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_VentaServicePrxI.java" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/servicios/_VentaServicePrxI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/generated-src/slice2java.df.xml" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/generated-src/slice2java.df.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/libs/coffeeMach.jar" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/libs/coffeeMach.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/resources/main/coffeMach.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/resources/main/coffeMach.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffeeMach/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/coffeeMach/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/Broker">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ice file" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2R9rNKzUtNYnPeQaia8YxDUm4HT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Broker" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Broker" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="coffemach" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="coffemach" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Broker" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75b0e1bf-ac1f-4665-bb32-39b95f1f9401" name="Changes" comment="" />
+      <created>1686673097186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686673097186</updated>
+    </task>
+    <servers />
+  </component>
+</project>
