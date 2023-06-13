@@ -1,0 +1,10 @@
+# Archivos binarios generados
+*.jar
+*.class
+
+# Archivos generados por Gradle
+.gradle/
+build/
+
+.idea/
+.vscode/
