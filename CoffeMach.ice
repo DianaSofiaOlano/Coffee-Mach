@@ -52,4 +52,16 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+    interface Suscriber{
+
+      void notify();
+      
+    }
+
+    interface Publisher {
+
+      void subscribe(Suscriber* sb);
+
+    }
+
 }
