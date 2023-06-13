@@ -1,4 +1,5 @@
 <state>
+<<<<<<< HEAD
   <timestamp value='1686688675666' />
   <sourceSet name='default'>
     <source name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\CoffeMach.ice'>
@@ -29,5 +30,34 @@
     </source>
     <arg value='C:\Program Files\ZeroC\Ice-3.7.8\\bin\slice2java.exe' />
     <arg value='-IC:\Program Files\ZeroC\Ice-3.7.8\\slice' />
+=======
+  <timestamp value='1686688685996' />
+  <sourceSet name='default'>
+    <source name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/CoffeMach.ice'>
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioComLogistica.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioAbastecimiento.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/Moneda.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/AlarmaService.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/VentaService.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/RecetaService.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/BrokerService.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/StringSeqHelper.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/MapStrIntHelper.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioComLogisticaPrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_ServicioComLogisticaPrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioAbastecimientoPrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/AlarmaServicePrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_AlarmaServicePrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/VentaServicePrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_VentaServicePrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/RecetaServicePrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_RecetaServicePrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/BrokerServicePrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_BrokerServicePrxI.java' />
+    </source>
+    <arg value='/opt/homebrew/Cellar/ice/3.7.8/bin/slice2java' />
+    <arg value='-I/opt/homebrew/Cellar/ice/3.7.8/share/ice/slice' />
+>>>>>>> b7bf3dba7d67bd86afcd524ff3d76232b2fe3c1d
   </sourceSet>
 </state>

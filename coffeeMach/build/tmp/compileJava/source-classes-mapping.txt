@@ -1,7 +1,7 @@
-CoffeeMach.java
- CoffeeMach
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
+CoffeeMach.java
+ CoffeeMach
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -42,10 +42,10 @@ suministro/SuministroServiceImp.java
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
-servicios/AlarmaServicePrx.java
- servicios.AlarmaServicePrx
 ingrediente/Ingrediente.java
  ingrediente.Ingrediente
+servicios/AlarmaServicePrx.java
+ servicios.AlarmaServicePrx
 productoReceta/RecetaRepositorio.java
  productoReceta.RecetaRepositorio
 servicios/Suscriber.java
@@ -104,3 +104,10 @@ servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 alarma/AlarmaService.java
  alarma.AlarmaService
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI

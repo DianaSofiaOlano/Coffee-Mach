@@ -52,6 +52,7 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+<<<<<<< HEAD
     interface Suscriber{
 
       void notify();
@@ -64,4 +65,21 @@ module servicios{
 
     }
 
+=======
+    interface BrokerService{
+         void locateClient(string clientName);
+         void locateServer(string serverName);
+         void sendRequest(string clientName, string serverName, string request);
+         void sendResponse(string serverName, string clientName, string response);
+         void registerServer(string serverName);
+         void receiveAck(string serverName, string clientName);
+         void registerClient(string clientName);
+         void receiveActualization(string serverName, string clientName);
+         void sendAlarm(string serverName, string clientName);
+         void unregisterClient(string clientName);
+         void unregisterServer(string serverName);
+         void notify(string serverName, string clientName);
+         void subscribe(string serverName, string clientName);
+        }
+>>>>>>> b7bf3dba7d67bd86afcd524ff3d76232b2fe3c1d
 }
