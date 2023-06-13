@@ -10,6 +10,7 @@
 rootProject.name = 'coffemach'
 include 'ServidorCentral'
 include 'coffeeMach'
+include 'proxyCache'
 // include 'cmLogistics'
 // include 'bodegaCentral'
 include 'Broker'

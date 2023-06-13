@@ -52,6 +52,20 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+<<<<<<< HEAD
+    interface Suscriber{
+
+      void notify();
+      
+    }
+
+    interface Publisher {
+
+      void subscribe(Suscriber* sb);
+
+    }
+
+=======
     interface BrokerService{
          void locateClient(string clientName);
          void locateClient(string clientName);
@@ -68,4 +82,5 @@ module servicios{
          void notify(string serverName, string clientName);
          void subscribe(string serverName, string clientName);
         }
+>>>>>>> b7bf3dba7d67bd86afcd524ff3d76232b2fe3c1d
 }
