@@ -17,31 +17,25 @@ package servicios;
 
 public interface BrokerService extends com.zeroc.Ice.Object
 {
-    void locateClient(String clientName, com.zeroc.Ice.Current current);
-
-    void locateServer(String serverName, com.zeroc.Ice.Current current);
-
-    void sendRequest(String clientName, String serverName, String request, com.zeroc.Ice.Current current);
-
     void sendResponse(String serverName, String clientName, String response, com.zeroc.Ice.Current current);
 
-    void registerServer(String serverName, com.zeroc.Ice.Current current);
+    void registerServer(SuscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     void receiveAck(String serverName, String clientName, com.zeroc.Ice.Current current);
 
-    void registerClient(String clientName, com.zeroc.Ice.Current current);
+    void registerClient(SuscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     void receiveActualization(String serverName, String clientName, com.zeroc.Ice.Current current);
 
     void sendAlarm(String serverName, String clientName, com.zeroc.Ice.Current current);
 
-    void unregisterClient(String clientName, com.zeroc.Ice.Current current);
+    void unregisterClient(SuscriberPrx subscriber, com.zeroc.Ice.Current current);
 
-    void unregisterServer(String serverName, com.zeroc.Ice.Current current);
+    void unregisterServer(SuscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     void _notify(String serverName, String clientName, com.zeroc.Ice.Current current);
 
-    void subscribe(String serverName, String clientName, com.zeroc.Ice.Current current);
+    void subscribe(SuscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -65,64 +59,6 @@ public interface BrokerService extends com.zeroc.Ice.Object
     static String ice_staticId()
     {
         return "::servicios::BrokerService";
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_locateClient(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_clientName;
-        iceP_clientName = istr.readString();
-        inS.endReadParams();
-        obj.locateClient(iceP_clientName, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_locateServer(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_serverName;
-        iceP_serverName = istr.readString();
-        inS.endReadParams();
-        obj.locateServer(iceP_serverName, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendRequest(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_clientName;
-        String iceP_serverName;
-        String iceP_request;
-        iceP_clientName = istr.readString();
-        iceP_serverName = istr.readString();
-        iceP_request = istr.readString();
-        inS.endReadParams();
-        obj.sendRequest(iceP_clientName, iceP_serverName, iceP_request, current);
-        return inS.setResult(inS.writeEmptyParams());
     }
 
     /**
@@ -158,10 +94,10 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_serverName;
-        iceP_serverName = istr.readString();
+        SuscriberPrx iceP_subscriber;
+        iceP_subscriber = SuscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.registerServer(iceP_serverName, current);
+        obj.registerServer(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -196,10 +132,10 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_clientName;
-        iceP_clientName = istr.readString();
+        SuscriberPrx iceP_subscriber;
+        iceP_subscriber = SuscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.registerClient(iceP_clientName, current);
+        obj.registerClient(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -254,10 +190,10 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_clientName;
-        iceP_clientName = istr.readString();
+        SuscriberPrx iceP_subscriber;
+        iceP_subscriber = SuscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.unregisterClient(iceP_clientName, current);
+        obj.unregisterClient(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -272,10 +208,10 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_serverName;
-        iceP_serverName = istr.readString();
+        SuscriberPrx iceP_subscriber;
+        iceP_subscriber = SuscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.unregisterServer(iceP_serverName, current);
+        obj.unregisterServer(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -310,12 +246,10 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_serverName;
-        String iceP_clientName;
-        iceP_serverName = istr.readString();
-        iceP_clientName = istr.readString();
+        SuscriberPrx iceP_subscriber;
+        iceP_subscriber = SuscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.subscribe(iceP_serverName, iceP_clientName, current);
+        obj.subscribe(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -326,15 +260,12 @@ public interface BrokerService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "locateClient",
-        "locateServer",
         "notify",
         "receiveAck",
         "receiveActualization",
         "registerClient",
         "registerServer",
         "sendAlarm",
-        "sendRequest",
         "sendResponse",
         "subscribe",
         "unregisterClient",
@@ -372,53 +303,41 @@ public interface BrokerService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_locateClient(this, in, current);
+                return _iceD_notify(this, in, current);
             }
             case 5:
             {
-                return _iceD_locateServer(this, in, current);
+                return _iceD_receiveAck(this, in, current);
             }
             case 6:
             {
-                return _iceD_notify(this, in, current);
+                return _iceD_receiveActualization(this, in, current);
             }
             case 7:
             {
-                return _iceD_receiveAck(this, in, current);
+                return _iceD_registerClient(this, in, current);
             }
             case 8:
             {
-                return _iceD_receiveActualization(this, in, current);
+                return _iceD_registerServer(this, in, current);
             }
             case 9:
             {
-                return _iceD_registerClient(this, in, current);
+                return _iceD_sendAlarm(this, in, current);
             }
             case 10:
             {
-                return _iceD_registerServer(this, in, current);
+                return _iceD_sendResponse(this, in, current);
             }
             case 11:
             {
-                return _iceD_sendAlarm(this, in, current);
+                return _iceD_subscribe(this, in, current);
             }
             case 12:
             {
-                return _iceD_sendRequest(this, in, current);
-            }
-            case 13:
-            {
-                return _iceD_sendResponse(this, in, current);
-            }
-            case 14:
-            {
-                return _iceD_subscribe(this, in, current);
-            }
-            case 15:
-            {
                 return _iceD_unregisterClient(this, in, current);
             }
-            case 16:
+            case 13:
             {
                 return _iceD_unregisterServer(this, in, current);
             }

@@ -4,22 +4,18 @@ import java.util.Random;
 import com.zeroc.Ice.Current;
 
 import servicios.BrokerService;
+import servicios.SuscriberPrx;
 
 public class BrokerI implements BrokerService {
 
-  private ArrayList<ServerServicePrx> servers;
-  private ArrayList<SubscriberServicePrx> clients;
+  private ArrayList<SuscriberPrx> servers;
+  private ArrayList<SuscriberPrx> clients;
 
-  private ServerServicePrx selectServer() {
+  private SuscriberPrx locateServer() {
         Random random = new Random();
         int index = random.nextInt(servers.size());
         return servers.get(index);
    }
-
-  @Override
-  public void sendRequest(String clientName, String serverName, String request, Current current) {
-    System.out.println("SendRequest: " + clientName + " " + serverName + " " + request);
-  }
 
   @Override
   public void sendResponse(String serverName, String clientName, String response, Current current) {
@@ -27,9 +23,8 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void registerServer(String serverName, Current current) {
-    ServerServicePrx server = ServerServicePrx.checkedCast(current.con);
-    servers.put(serverName, server);
+  public void registerServer(SuscriberPrx serverToRegister, Current current) {
+    servers.add(serverToRegister);
   }
 
   @Override
@@ -38,8 +33,8 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void registerClient(String clientName, Current current) {
-    System.out.println("RegisterClient: " + clientName);
+  public void registerClient(SuscriberPrx clientToRegister, Current current) {
+    clients.add(clientToRegister);
   }
 
   @Override
@@ -53,13 +48,13 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void unregisterClient(String clientName, Current current) {
-    System.out.println("UnregisterClient: " + clientName);
+  public void unregisterClient(SuscriberPrx clientToUnregister, Current current) {
+    clients.remove(clientToUnregister);
   }
 
   @Override
-  public void unregisterServer(String serverName, Current current) {
-    System.out.println("UnregisterServer: " + serverName);
+  public void unregisterServer(SuscriberPrx serverToUnregister, Current current) {
+    servers.remove(serverToUnregister);
   }
 
   @Override
@@ -68,10 +63,8 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void subscribe(String serverName, String clientName, Current current) {
-    System.out.println("Subscribe: " + serverName + " " + clientName);
+  public void subscribe(SuscriberPrx serverToUnregister, Current current) {
+    servers.add(serverToUnregister);
   }
-        
-        
-
+      
 }
