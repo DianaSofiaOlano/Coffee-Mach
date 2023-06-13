@@ -52,6 +52,10 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec5f44c03f24a137d6cbe2ca1a787116396a22c8
     interface Suscriber{
 
       void notify();
@@ -64,6 +68,10 @@ module servicios{
 
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec5f44c03f24a137d6cbe2ca1a787116396a22c8
     interface BrokerService{
          void sendResponse(string serverName, string clientName, string response);
          void registerServer(Suscriber* subscriber);
