@@ -65,12 +65,12 @@ module servicios{
     }
 
     interface ServerRecieveAlarmService{
-      void receiveAlarm(AlarmaService* alarmaService);
+      void receiveAlarm(int codMaquina,string type, AlarmaService* alarmaService);
     }
 
     interface BrokerService{
          void registerServer(ServerRecieveAlarmService* subscriber);
          void unregisterServer(ServerRecieveAlarmService* subscriber);
-         void sendAlarm(AlarmaService* alarmaService);
+         void sendAlarm(int codMaquina,string type, AlarmaService* alarmaService);
         }
 }

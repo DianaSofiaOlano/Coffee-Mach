@@ -89,37 +89,41 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void sendAlarm(AlarmaServicePrx alarmaService)
+    default void sendAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService)
     {
-        sendAlarm(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        sendAlarm(codMaquina, type, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void sendAlarm(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default void sendAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        _iceI_sendAlarmAsync(alarmaService, context, true).waitForResponse();
+        _iceI_sendAlarmAsync(codMaquina, type, alarmaService, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(AlarmaServicePrx alarmaService)
+    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, AlarmaServicePrx alarmaService)
     {
-        return _iceI_sendAlarmAsync(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_sendAlarmAsync(codMaquina, type, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        return _iceI_sendAlarmAsync(alarmaService, context, false);
+        return _iceI_sendAlarmAsync(codMaquina, type, alarmaService, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_codMaquina -
+     * @param iceP_type -
      * @param iceP_alarmaService -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendAlarmAsync(AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendAlarmAsync(int iceP_codMaquina, String iceP_type, AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendAlarm", null, sync, null);
         f.invoke(false, context, null, ostr -> {
+                     ostr.writeInt(iceP_codMaquina);
+                     ostr.writeString(iceP_type);
                      ostr.writeProxy(iceP_alarmaService);
                  }, null);
         return f;

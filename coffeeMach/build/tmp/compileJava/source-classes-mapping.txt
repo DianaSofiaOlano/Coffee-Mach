@@ -35,8 +35,8 @@ servicios/RecetaService.java
  servicios.RecetaService$1
 servicios/_SuscriberPrxI.java
  servicios._SuscriberPrxI
-interfazUsuario/Interfaz.java
- interfazUsuario.Interfaz
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
 servicios/_ServerRecieveAlarmServicePrxI.java
  servicios._ServerRecieveAlarmServicePrxI
 servicios/AlarmaService.java
@@ -46,9 +46,9 @@ servicios/StringSeqHelper.java
  servicios.StringSeqHelper
 interfaces/Repositorio.java
  interfaces.Repositorio
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
 ingrediente/IngredienteService.java
@@ -59,8 +59,8 @@ alarma/AlarmaService.java
  alarma.AlarmaService
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/ServerRecieveAlarmService.java
  servicios.ServerRecieveAlarmService
  servicios.ServerRecieveAlarmService$1
@@ -111,10 +111,10 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 servicios/SuscriberPrx.java
  servicios.SuscriberPrx
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
+interfazUsuario/Interfaz.java
+ interfazUsuario.Interfaz
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper

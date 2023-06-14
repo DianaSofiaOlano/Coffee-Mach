@@ -17,37 +17,41 @@ package servicios;
 
 public interface ServerRecieveAlarmServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void receiveAlarm(AlarmaServicePrx alarmaService)
+    default void receiveAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService)
     {
-        receiveAlarm(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        receiveAlarm(codMaquina, type, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void receiveAlarm(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default void receiveAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        _iceI_receiveAlarmAsync(alarmaService, context, true).waitForResponse();
+        _iceI_receiveAlarmAsync(codMaquina, type, alarmaService, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(AlarmaServicePrx alarmaService)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(int codMaquina, String type, AlarmaServicePrx alarmaService)
     {
-        return _iceI_receiveAlarmAsync(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_receiveAlarmAsync(codMaquina, type, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(int codMaquina, String type, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        return _iceI_receiveAlarmAsync(alarmaService, context, false);
+        return _iceI_receiveAlarmAsync(codMaquina, type, alarmaService, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_codMaquina -
+     * @param iceP_type -
      * @param iceP_alarmaService -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlarmAsync(AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlarmAsync(int iceP_codMaquina, String iceP_type, AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveAlarm", null, sync, null);
         f.invoke(false, context, null, ostr -> {
+                     ostr.writeInt(iceP_codMaquina);
+                     ostr.writeString(iceP_type);
                      ostr.writeProxy(iceP_alarmaService);
                  }, null);
         return f;

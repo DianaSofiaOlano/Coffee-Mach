@@ -40,8 +40,8 @@ servicios/_SuscriberPrxI.java
  servicios._SuscriberPrxI
 comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
-modelo/VentasReceta.java
- modelo.VentasReceta
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
 modelo/Receta.java
  modelo.Receta
 servicios/_ServerRecieveAlarmServicePrxI.java
@@ -51,9 +51,9 @@ servicios/AlarmaService.java
  servicios.AlarmaService$1
 servicios/StringSeqHelper.java
  servicios.StringSeqHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
 interfaz/ControladorRecetas.java
@@ -65,8 +65,8 @@ servicios/ServicioComLogisticaPrx.java
  servicios.ServicioComLogisticaPrx
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/ServerRecieveAlarmService.java
  servicios.ServerRecieveAlarmService
  servicios.ServerRecieveAlarmService$1
@@ -78,8 +78,8 @@ servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
 servicios/Moneda.java
  servicios.Moneda
-servicios/SuscriberPrx.java
- servicios.SuscriberPrx
+ServidorCentral.java
+ ServidorCentral
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
 servicios/Suscriber.java
@@ -106,12 +106,12 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
-ServidorCentral.java
- ServidorCentral
+servicios/SuscriberPrx.java
+ servicios.SuscriberPrx
+modelo/VentasReceta.java
+ modelo.VentasReceta
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper

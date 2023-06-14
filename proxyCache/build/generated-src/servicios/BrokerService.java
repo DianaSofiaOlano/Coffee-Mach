@@ -21,7 +21,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
 
     void unregisterServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
 
-    void sendAlarm(AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void sendAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -94,10 +94,14 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        int iceP_codMaquina;
+        String iceP_type;
         AlarmaServicePrx iceP_alarmaService;
+        iceP_codMaquina = istr.readInt();
+        iceP_type = istr.readString();
         iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.sendAlarm(iceP_alarmaService, current);
+        obj.sendAlarm(iceP_codMaquina, iceP_type, iceP_alarmaService, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
