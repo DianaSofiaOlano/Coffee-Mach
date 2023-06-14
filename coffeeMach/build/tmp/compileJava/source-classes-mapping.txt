@@ -2,8 +2,8 @@ servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 CoffeeMach.java
  CoffeeMach
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
+alarma/AlarmaService.java
+ alarma.AlarmaService
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -76,8 +76,8 @@ servicios/Publisher.java
  servicios.Publisher$1
 McControlador/Venta.java
  McControlador.Venta
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
+ingrediente/IngredienteService.java
+ ingrediente.IngredienteService
 monedero/DepositoMonedas.java
  monedero.DepositoMonedas
 alarma/AlarmaServiceImp.java
@@ -95,9 +95,8 @@ servicios/SuscriberPrx.java
  servicios.SuscriberPrx
 interfazUsuario/Interfaz.java
  interfazUsuario.Interfaz
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
 servicios/ServicioAbastecimiento.java
@@ -105,9 +104,24 @@ servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento$1
 servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
-ingrediente/IngredienteService.java
- ingrediente.IngredienteService
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-alarma/AlarmaService.java
- alarma.AlarmaService
+servicios/ServerSubscriber.java
+ servicios.ServerSubscriber
+ servicios.ServerSubscriber$1
+servicios/_ServerSubscriberPrxI.java
+ servicios._ServerSubscriberPrxI
+servicios/ServerSubscriberPrx.java
+ servicios.ServerSubscriberPrx
+servicios/_ClientSubscriberPrxI.java
+ servicios._ClientSubscriberPrxI
+servicios/ClientSubscriberPrx.java
+ servicios.ClientSubscriberPrx
+servicios/ClientSubscriber.java
+ servicios.ClientSubscriber
+ servicios.ClientSubscriber$1
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI

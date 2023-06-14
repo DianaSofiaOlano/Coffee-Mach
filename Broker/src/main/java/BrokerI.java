@@ -3,68 +3,67 @@ import java.util.Random;
 
 import com.zeroc.Ice.Current;
 
+import servicios.AlarmaServicePrx;
 import servicios.BrokerService;
-import servicios.SuscriberPrx;
+import servicios.ClientSubscriberPrx;
+import servicios.RecetaServicePrx;
+import servicios.ServerSubscriberPrx;
+
+
 
 public class BrokerI implements BrokerService {
 
-  private ArrayList<SuscriberPrx> servers;
-  private ArrayList<SuscriberPrx> clients;
+  /* Servidores Centrales */
+  private ArrayList<ServerSubscriberPrx> servers;
+  /* Maquinas de cafe */
+  private ArrayList<ClientSubscriberPrx> clients;
+  private int currentServerIndex = 0;
 
-  private SuscriberPrx locateServer() {
-        Random random = new Random();
-        int index = random.nextInt(servers.size());
-        return servers.get(index);
-   }
-
-  @Override
-  public void sendResponse(String serverName, String clientName, String response, Current current) {
-    System.out.println("SendResponse: " + serverName + " " + clientName + " " + response);
+  private ServerSubscriberPrx locateServer() {
+     ServerSubscriberPrx selectedServer = servers.get(currentServerIndex);
+     currentServerIndex = (currentServerIndex + 1) % servers.size();
+     return selectedServer;
   }
-
+   
   @Override
-  public void registerServer(SuscriberPrx serverToRegister, Current current) {
+  public void registerServer(ServerSubscriberPrx serverToRegister, Current current) {
     servers.add(serverToRegister);
   }
-
+  
   @Override
-  public void receiveAck(String serverName, String clientName, Current current) {
-    System.out.println("ReceiveAck: " + serverName + " " + clientName);
-  }
-
-  @Override
-  public void registerClient(SuscriberPrx clientToRegister, Current current) {
+  public void registerClient(ClientSubscriberPrx clientToRegister, Current current) {
     clients.add(clientToRegister);
   }
 
   @Override
-  public void receiveActualization(String serverName, String clientName, Current current) {
-    System.out.println("ReceiveActualization: " + serverName + " " + clientName);
+  public void receiveUpdate(ClientSubscriberPrx clientSubscriberPrx, Current current) {
+    clientSubscriberPrx.receiveUpdate();
   }
 
   @Override
-  public void sendAlarm(String serverName, String clientName, Current current) {
-    System.out.println("SendAlarm: " + serverName + " " + clientName);
+  public void sendAlarm(AlarmaServicePrx alarmaServicePrx, Current current) {
+    ServerSubscriberPrx server = locateServer();
+    server.sendAlarm(alarmaServicePrx);
   }
 
   @Override
-  public void unregisterClient(SuscriberPrx clientToUnregister, Current current) {
+  public void unregisterClient(ClientSubscriberPrx clientToUnregister, Current current) {
     clients.remove(clientToUnregister);
   }
 
   @Override
-  public void unregisterServer(SuscriberPrx serverToUnregister, Current current) {
+  public void unregisterServer(ServerSubscriberPrx serverToUnregister, Current current) {
     servers.remove(serverToUnregister);
   }
 
   @Override
-  public void _notify(String serverName, String clientName, Current current) {
-    System.out.println("Notify: " + serverName + " " + clientName);
+  public void _notify(ServerSubscriberPrx serverSubscriberPrx,Current current) {
+    serverSubscriberPrx._notify();
   }
 
   @Override
-  public void subscribe(SuscriberPrx serverToUnregister, Current current) {
-    servers.add(serverToUnregister);
+  public void subscribe(ClientSubscriberPrx serverToUnregister, Current current) {
+    
   }
       
 }

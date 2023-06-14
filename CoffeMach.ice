@@ -52,10 +52,7 @@ module servicios{
 	    string registrarIngrediente(string nombre);
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> ec5f44c03f24a137d6cbe2ca1a787116396a22c8
     interface Suscriber{
 
       void notify();
@@ -68,20 +65,27 @@ module servicios{
 
     }
 
-<<<<<<< HEAD
-=======
+    interface ServerSubscriber{
+      void notify();
+      void sendAlarm(AlarmaService* alarmaService);
+    }
 
->>>>>>> ec5f44c03f24a137d6cbe2ca1a787116396a22c8
+    interface ClientSubscriber{
+      void notify();
+      void receiveUpdate();
+    };
+
+
     interface BrokerService{
-         void sendResponse(string serverName, string clientName, string response);
-         void registerServer(Suscriber* subscriber);
-         void receiveAck(string serverName, string clientName);
-         void registerClient(Suscriber* subscriber);
-         void receiveActualization(string serverName, string clientName);
-         void sendAlarm(string serverName, string clientName);
-         void unregisterClient(Suscriber* subscriber);
-         void unregisterServer(Suscriber* subscriber);
-         void notify(string serverName, string clientName);
-         void subscribe(Suscriber* subscriber);
+         void registerServer(ServerSubscriber* subscriber);
+         void registerClient(ClientSubscriber* subscriber);
+         void receiveUpdate(ClientSubscriber* subscriber);
+         void sendAlarm(AlarmaService* alarmaService);
+         void unregisterClient(ClientSubscriber* subscriber);
+         void unregisterServer(ServerSubscriber* subscriber);
+         void notify(ServerSubscriber* subscriber);
+         void subscribe(ClientSubscriber* subscriber);
         }
+
+    
 }
