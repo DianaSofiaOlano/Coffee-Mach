@@ -24,9 +24,9 @@ public class PublisherImpl implements Publisher{
         }
     }
 
-    public void notifyAll(String message){
+    public void notifyAll(String[] message){
         for (Map.Entry<String, SuscriberPrx> entry : suscribers.entrySet()) {
-            entry.getValue()._notify();
+            entry.getValue().notifyChange(message);
         }
     }
 

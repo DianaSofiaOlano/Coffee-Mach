@@ -18,6 +18,7 @@ public class ProxyCache {
             communicator.propertyToProxy("publisher")).ice_twoway();
 
             SubscriberServerImpl subscriberServerImpl = new SubscriberServerImpl();
+            subscriberServerImpl.setPublisher((PublisherImpl) publisherImpl);
             ObjectPrx objectPrx = adapter.add(subscriberServerImpl, Util.stringToIdentity("subscriber"));
             SuscriberPrx subscriberPrx = SuscriberPrx.checkedCast(objectPrx);
             publisherPrx.subscribe(subscriberPrx);

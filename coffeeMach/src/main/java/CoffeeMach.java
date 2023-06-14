@@ -23,6 +23,7 @@ public class CoffeeMach {
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
       ControladorMQ service = new ControladorMQ();
       SubscriberImpl subscriber = new SubscriberImpl();
+      subscriber.setController(service);
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);

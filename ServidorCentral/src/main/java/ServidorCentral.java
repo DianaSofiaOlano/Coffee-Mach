@@ -45,6 +45,7 @@ public class ServidorCentral {
 
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);
+            controladorRecetas.setPublisher(publisher);
             controladorRecetas.run();
 
             adapter.activate();

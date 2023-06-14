@@ -47,21 +47,21 @@ servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica$1
 servicios/AlarmaServicePrx.java
  servicios.AlarmaServicePrx
-servicios/Suscriber.java
- servicios.Suscriber
- servicios.Suscriber$1
+modelo/VentasReceta.java
+ modelo.VentasReceta
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
-servicios/PublisherPrx.java
- servicios.PublisherPrx
-servicios/_SuscriberPrxI.java
- servicios._SuscriberPrxI
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
 comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
-servicios/Publisher.java
- servicios.Publisher
- servicios.Publisher$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
@@ -85,26 +85,26 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
+servicios/Suscriber.java
+ servicios.Suscriber
+ servicios.Suscriber$1
+servicios/PublisherPrx.java
+ servicios.PublisherPrx
+servicios/_SuscriberPrxI.java
+ servicios._SuscriberPrxI
+servicios/Publisher.java
+ servicios.Publisher
+ servicios.Publisher$1
 servicios/SuscriberPrx.java
  servicios.SuscriberPrx
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
+receta/PublisherProxyImpl.java
+ receta.PublisherProxyImpl
 interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas
  interfaz.ControladorRecetas$1
  interfaz.ControladorRecetas$2
  interfaz.ControladorRecetas$3
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-receta/PublisherProxyImpl.java
- receta.PublisherProxyImpl
 ServidorCentral.java
  ServidorCentral

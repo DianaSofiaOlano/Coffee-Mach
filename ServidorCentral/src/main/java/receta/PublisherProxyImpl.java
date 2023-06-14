@@ -14,6 +14,12 @@ public class PublisherProxyImpl implements Publisher{
         proxySuscribers = new HashMap<>();
     }
 
+     public void notifyAll(String[] recetas){
+        for (SuscriberPrx suscriberPrx : proxySuscribers.values()) {
+            suscriberPrx.notifyChange(recetas);
+        }
+    }
+
     @Override
     public void subscribe(SuscriberPrx sb, Current current) {
         String address = getAddress(sb.toString());

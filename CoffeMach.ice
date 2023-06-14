@@ -55,7 +55,7 @@ module servicios{
 
     interface Suscriber{
 
-      void notify();
+      void notifyChange(StringArr receta);
       
     }
 
