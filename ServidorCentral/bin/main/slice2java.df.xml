@@ -1,39 +1,43 @@
 <state>
+<<<<<<< HEAD
   <timestamp value='1686767620250' />
+=======
+  <timestamp value='1686765210190' />
+>>>>>>> 2fdbb3ed0eaeb60190bd8bf50494cacd3e37b248
   <sourceSet name='default'>
-    <source name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/CoffeMach.ice'>
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioComLogistica.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioAbastecimiento.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/Moneda.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/AlarmaService.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/VentaService.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/RecetaService.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/Suscriber.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/Publisher.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServerRecieveAlarmService.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/BrokerService.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/StringSeqHelper.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/MapStrIntHelper.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioComLogisticaPrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_ServicioComLogisticaPrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServicioAbastecimientoPrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_ServicioAbastecimientoPrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/AlarmaServicePrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_AlarmaServicePrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/VentaServicePrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_VentaServicePrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/RecetaServicePrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_RecetaServicePrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/SuscriberPrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_SuscriberPrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/PublisherPrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_PublisherPrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/ServerRecieveAlarmServicePrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_ServerRecieveAlarmServicePrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/BrokerServicePrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/ServidorCentral/build/generated-src/servicios/_BrokerServicePrxI.java' />
+    <source name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\CoffeMach.ice'>
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServicioComLogistica.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServicioAbastecimiento.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\Moneda.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\AlarmaService.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\VentaService.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\RecetaService.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\Suscriber.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\Publisher.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServerRecieveAlarmService.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\BrokerService.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\StringSeqHelper.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\MapStrIntHelper.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServicioComLogisticaPrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_ServicioComLogisticaPrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServicioAbastecimientoPrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_ServicioAbastecimientoPrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\AlarmaServicePrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_AlarmaServicePrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\VentaServicePrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_VentaServicePrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\RecetaServicePrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_RecetaServicePrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\SuscriberPrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_SuscriberPrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\PublisherPrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_PublisherPrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\ServerRecieveAlarmServicePrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_ServerRecieveAlarmServicePrxI.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\BrokerServicePrx.java' />
+      <file name='C:\Users\vicen\Desktop\U\U2023-1\Arquitectura de software\Proyecto final\Coffe-Mach\ServidorCentral\build\generated-src\servicios\_BrokerServicePrxI.java' />
     </source>
-    <arg value='/opt/homebrew/Cellar/ice/3.7.8/bin/slice2java' />
-    <arg value='-I/opt/homebrew/Cellar/ice/3.7.8/share/ice/slice' />
+    <arg value='C:\Program Files\ZeroC\Ice-3.7.8\\bin\slice2java.exe' />
+    <arg value='-IC:\Program Files\ZeroC\Ice-3.7.8\\slice' />
   </sourceSet>
 </state>

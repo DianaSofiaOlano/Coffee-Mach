@@ -17,7 +17,7 @@ package servicios;
 
 public interface Suscriber extends com.zeroc.Ice.Object
 {
-    void _notify(com.zeroc.Ice.Current current);
+    void notifyChange(String[] receta, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -50,11 +50,14 @@ public interface Suscriber extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_notify(Suscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_notifyChange(Suscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj._notify(current);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        String[] iceP_receta;
+        iceP_receta = istr.readStringSeq();
+        inS.endReadParams();
+        obj.notifyChange(iceP_receta, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -65,7 +68,7 @@ public interface Suscriber extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "notify"
+        "notifyChange"
     };
 
     /** @hidden */
@@ -99,7 +102,7 @@ public interface Suscriber extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_notify(this, in, current);
+                return _iceD_notifyChange(this, in, current);
             }
         }
 

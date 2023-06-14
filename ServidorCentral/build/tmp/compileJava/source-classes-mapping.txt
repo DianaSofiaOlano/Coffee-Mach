@@ -108,6 +108,8 @@ modelo/ConexionBD.java
  modelo.ConexionBD
 servicios/SuscriberPrx.java
  servicios.SuscriberPrx
+receta/PublisherProxyImpl.java
+ receta.PublisherProxyImpl
 modelo/VentasReceta.java
  modelo.VentasReceta
 servicios/ServicioAbastecimiento.java
