@@ -37,7 +37,7 @@ public class BrokerI implements BrokerService {
   public void sendAlarm(AlarmaServicePrx alarmaServicePrx, Current current) {
     ServerSubscriberPrx server = locateServer();
     try {
-      server.sendAlarm(alarmaServicePrx);
+      server.receiveAlarm(alarmaServicePrx);
     } catch (Exception e) {
       System.err.println("Error al procesar la alarma en el servidor: " + server.toString());
     }

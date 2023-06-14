@@ -65,7 +65,7 @@ module servicios{
     }
 
     interface ServerSubscriber{
-      void sendAlarm(AlarmaService* alarmaService);
+      void receiveAlarm(AlarmaService* alarmaService);
     }
 
     interface BrokerService{
