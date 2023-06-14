@@ -1,6 +1,11 @@
 # Archivos binarios generados
 *.jar
 *.class
+*.xml
+
+
+
+
 
 # Archivos generados por Gradle
 .gradle/

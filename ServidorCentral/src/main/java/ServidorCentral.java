@@ -5,6 +5,7 @@ import com.zeroc.Ice.*;
 import comunicacion.*;
 import interfaz.ControladorRecetas;
 import receta.ProductoReceta;
+import receta.PublisherProxyImpl;
 import servicios.*;
 import ventas.VentasManager;
 import ServerControl.*;
@@ -18,6 +19,8 @@ public class ServidorCentral {
         try (Communicator communicator = Util.initialize(args, "server.cfg", params)) {
 
             ObjectAdapter adapter = communicator.createObjectAdapter("Server");
+
+            ObjectAdapter adapter2 = communicator.createObjectAdapter("Publisher");
 
             ServerControl control = new ServerControl(communicator);
 
@@ -33,15 +36,14 @@ public class ServidorCentral {
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
+            PublisherProxyImpl publisher = new PublisherProxyImpl();
             ServerReceiveAlarmServiceI receiveAlarms = new ServerReceiveAlarmServiceI();
-
-            
-            
 
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
+            adapter2.add(publisher, Util.stringToIdentity("Publisher"));
             adapter.add(receiveAlarms, Util.stringToIdentity("receiveAlarms"));
 
             // Obtener el proxy del servidor
@@ -60,9 +62,11 @@ public class ServidorCentral {
 
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);
+            controladorRecetas.setPublisher(publisher);
             controladorRecetas.run();
 
             adapter.activate();
+            adapter2.activate();
             communicator.waitForShutdown();
 
         }

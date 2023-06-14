@@ -1,32 +1,31 @@
-import java.util.Map;
-
+package receta;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.zeroc.Ice.Current;
 
 import servicios.Publisher;
 import servicios.SuscriberPrx;
-public class PublisherImpl implements Publisher{
+public class PublisherProxyImpl implements Publisher{
 
-    Map <String, SuscriberPrx> suscribers = new HashMap<>();
+    Map <String, SuscriberPrx> proxySuscribers = new HashMap<>();
 
-    public PublisherImpl() {
-        suscribers = new HashMap<>();
+    public PublisherProxyImpl() {
+        proxySuscribers = new HashMap<>();
     }
 
+     public void notifyAll(String[] recetas){
+        for (SuscriberPrx suscriberPrx : proxySuscribers.values()) {
+            suscriberPrx.notifyChange(recetas);
+        }
+    }
 
     @Override
     public void subscribe(SuscriberPrx sb, Current current) {
         String address = getAddress(sb.toString());
-        if(!suscribers.containsKey(address)){
-            suscribers.put(address, sb);
+        if(!proxySuscribers.containsKey(address)){
+            proxySuscribers.put(address, sb);
             System.out.println("Client subscribed: " + address);
-        }
-    }
-
-    public void notifyAll(String[] message){
-        for (Map.Entry<String, SuscriberPrx> entry : suscribers.entrySet()) {
-            entry.getValue().notifyChange(message);
         }
     }
 

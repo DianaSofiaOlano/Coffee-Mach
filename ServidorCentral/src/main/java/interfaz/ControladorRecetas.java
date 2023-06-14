@@ -7,17 +7,24 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import receta.ProductoReceta;
+import receta.PublisherProxyImpl;
 import servicios.*;
 
 public class ControladorRecetas implements Runnable {
 
 	private ProductoReceta recetaService;
 
+	private PublisherProxyImpl publisher;
+
 	/**
 	 * @param recetaService the recetaService to set
 	 */
 	public void setRecetaService(ProductoReceta recetaService) {
 		this.recetaService = recetaService;
+	}
+
+	public void setPublisher(PublisherProxyImpl publisher){
+		this.publisher = publisher;
 	}
 
 	private InterfazRecetas iR;
@@ -84,8 +91,10 @@ public class ControladorRecetas implements Runnable {
 							null);
 
 					listaReceta.add(listadoRec);
-
+					publisher.notifyAll(recetaService.consultarRecetas(null));
+					System.out.println("Receta agregada");
 					actualizarVista();
+					
 				}
 
 				iR.getTextFieldNombreRec().setText("");

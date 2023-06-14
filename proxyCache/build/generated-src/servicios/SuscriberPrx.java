@@ -17,36 +17,39 @@ package servicios;
 
 public interface SuscriberPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void _notify()
+    default void notifyChange(String[] receta)
     {
-        _notify(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        notifyChange(receta, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void _notify(java.util.Map<String, String> context)
+    default void notifyChange(String[] receta, java.util.Map<String, String> context)
     {
-        _iceI_notifyAsync(context, true).waitForResponse();
+        _iceI_notifyChangeAsync(receta, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync()
+    default java.util.concurrent.CompletableFuture<Void> notifyChangeAsync(String[] receta)
     {
-        return _iceI_notifyAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_notifyChangeAsync(receta, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> notifyChangeAsync(String[] receta, java.util.Map<String, String> context)
     {
-        return _iceI_notifyAsync(context, false);
+        return _iceI_notifyChangeAsync(receta, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_receta -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyChangeAsync(String[] iceP_receta, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notify", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notifyChange", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeStringSeq(iceP_receta);
+                 }, null);
         return f;
     }
 

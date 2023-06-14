@@ -21,716 +21,773 @@ import ingrediente.IngredienteRepositorio;
 
 public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
-	private AlarmaServicePrx alarmaServicePrx;
-	private VentaServicePrx ventasService;
-
-	// @Reference
-	private AlarmaRepositorio alarmas = AlarmaRepositorio.getInstance();
-	// @Reference
-	private IngredienteRepositorio ingredientes = IngredienteRepositorio.getInstance();
-	// @Reference
-	private MonedasRepositorio monedas = MonedasRepositorio.getInstance();
-	// @Reference
-	private RecetaRepositorio recetas = RecetaRepositorio.getInstance();
-	// @Referenc
-	private VentaRepositorio ventas = VentaRepositorio.getInstance();
-
-	/**
-	 * @param ventas the ventas to set
-	 */
-	public void setVentas(VentaServicePrx ventasS) {
-		this.ventasService = ventasS;
-	}
-
-	public void setAlarmaService(AlarmaServicePrx a) {
-		alarmaServicePrx = a;
-	}
-
-	private RecetaServicePrx recetaServicePrx;
-
-	/**
-	 * @param recetaServicePrx the recetaServicePrx to set
-	 */
-	public void setRecetaServicePrx(RecetaServicePrx recetaServicePrx) {
-		this.recetaServicePrx = recetaServicePrx;
-	}
-
-	private Interfaz frame;
-	private int codMaquina;
-	private double suma;
-
-	public void run() {
-
-		try {
-			frame = new Interfaz();
-			frame.setLocationRelativeTo(null);
-			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		arrancarMaquina();
-		eventos();
-	}
-
-	@Override
-	public void abastecer(int codMaquina, int idAlarma, Current current) {
-		// TODO Auto-generated method stub
-		int cantidad = 0;
-		System.out.println("Entra a abastecer");
-
-		System.out.println(codMaquina + "-" + idAlarma + "-" + this.codMaquina);
-
-		if (codMaquina == this.codMaquina) {
-
-			System.out.println("Entra al primer if");
-
-			if (idAlarma == 1) {
-				// Habilita Interfaz
-			}
-
-			else if (idAlarma == 2 | idAlarma == 3) {
-				// Depositos Monedas
-				DepositoMonedas moneda = monedas.findByKey("100");
-				moneda.setCantidad(20);
-				monedas.addElement("100", moneda);
-
-				if (idAlarma == 3) {
-
-				}
-
-			} else if (idAlarma == 4 | idAlarma == 5) {
-				// Depositos Monedas
-				DepositoMonedas moneda = monedas.findByKey("200");
-				moneda.setCantidad(20);
-				monedas.addElement("200", moneda);
-			}
-
-			else if (idAlarma == 6 | idAlarma == 7) {
-				// Depositos Monedas
-				DepositoMonedas moneda = monedas.findByKey("500");
-				moneda.setCantidad(20);
-				monedas.addElement("500", moneda);
-			}
-
-			else if (idAlarma == 8 | idAlarma == 12) {
-				recargarIngredienteEspecifico("Agua");
-			}
-
-			else if (idAlarma == 9 | idAlarma == 13) {
-				recargarIngredienteEspecifico("Cafe");
-			}
-
-			else if (idAlarma == 10 | idAlarma == 14) {
-				recargarIngredienteEspecifico("Azucar");
-			}
-
-			else if (idAlarma == 11 | idAlarma == 15) {
-				recargarIngredienteEspecifico("Vaso");
-			}
-
-			quitarAlarma(idAlarma + "");
-
-			if (alarmas.getValues().isEmpty()) {
-				frame.setEnabled(true);
-				frame.interfazHabilitada();
-
-				System.out.println("Entra al if de habilitacion");
-			}
-
-			// Respaldo
-			respaldarMaq();
-			actualizarRecetasGraf();
-			actualizarInsumosGraf();
-			actualizarAlarmasGraf();
-
-			// ResetAlarmas
-
-			// Envio a Servidor
-			alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
-		}
-	}
-
-	public void quitarAlarma(String tipo) {
-		alarmas.removeElement(tipo);
-	}
-
-	public void recargarIngredienteEspecifico(String ingrediente) {
-		Ingrediente ing = ingredientes.findByKey(ingrediente);
-		ing.setCantidad(ing.getMaximo());
-		ingredientes.addElement(ingrediente, ing);
-	}
-
-	public void eventos() {
-
-		frame.getBtnIngresar100().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
-				frame.getTextAreaSaldo().setText((saldo + 100) + "");
-				suma += 100;
-				DepositoMonedas moneda = monedas.findByKey("100");
-				moneda.setCantidad(moneda.getCantidad() + 1);
-				monedas.addElement("100", moneda);
-				actualizarInsumosGraf();
-
-			}
-		});
-
-		frame.getBtnIngresar200().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
-				frame.getTextAreaSaldo().setText((saldo + 200) + "");
-				suma += 200;
-				DepositoMonedas moneda = monedas.findByKey("200");
-				moneda.setCantidad(moneda.getCantidad() + 1);
-				monedas.addElement("200", moneda);
-				actualizarInsumosGraf();
-
-			}
-		});
-
-		frame.getBtnIngresar500().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
-				frame.getTextAreaSaldo().setText((saldo + 500) + "");
-				suma += 500;
-				DepositoMonedas moneda = monedas.findByKey("500");
-				moneda.setCantidad(moneda.getCantidad() + 1);
-				monedas.addElement("500", moneda);
-				actualizarInsumosGraf();
+  private AlarmaServicePrx alarmaServicePrx;
+  private BrokerServicePrx brokerServicePrx;
+  private VentaServicePrx ventasService;
+
+  // @Reference
+  private AlarmaRepositorio alarmas = AlarmaRepositorio.getInstance();
+  // @Reference
+  private IngredienteRepositorio ingredientes = IngredienteRepositorio.getInstance();
+  // @Reference
+  private MonedasRepositorio monedas = MonedasRepositorio.getInstance();
+  // @Reference
+  private RecetaRepositorio recetas = RecetaRepositorio.getInstance();
+  // @Referenc
+  private VentaRepositorio ventas = VentaRepositorio.getInstance();
+
+  /**
+   * @param ventas the ventas to set
+   */
+    public void setVentas(VentaServicePrx ventasS) {
+      this.ventasService = ventasS;
+    }
+  
+    public void setBrokerServicePrx(BrokerServicePrx broker) {
+      this.brokerServicePrx = broker;
+  }   
+
+  public void setAlarmaService(AlarmaServicePrx a) {
+    alarmaServicePrx = a;
+  }
+
+  private RecetaServicePrx recetaServicePrx;
+
+  /**
+   * @param recetaServicePrx the recetaServicePrx to set
+   */
+  public void setRecetaServicePrx(RecetaServicePrx recetaServicePrx) {
+    this.recetaServicePrx = recetaServicePrx;
+  }
+
+  private Interfaz frame;
+  private int codMaquina;
+  private double suma;
+
+  public void run() {
+
+    try {
+      frame = new Interfaz();
+      frame.setLocationRelativeTo(null);
+      frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      frame.setVisible(true);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
+    arrancarMaquina();
+    eventos();
+  }
+
+  @Override
+  public void abastecer(int codMaquina, int idAlarma, Current current) {
+    // TODO Auto-generated method stub
+    int cantidad = 0;
+    System.out.println("Entra a abastecer");
+
+    System.out.println(codMaquina + "-" + idAlarma + "-" + this.codMaquina);
+
+    if (codMaquina == this.codMaquina) {
+
+      System.out.println("Entra al primer if");
+
+      if (idAlarma == 1) {
+        // Habilita Interfaz
+      }
+
+      else if (idAlarma == 2 | idAlarma == 3) {
+        // Depositos Monedas
+        DepositoMonedas moneda = monedas.findByKey("100");
+        moneda.setCantidad(20);
+        monedas.addElement("100", moneda);
+
+        if (idAlarma == 3) {
+
+        }
+
+      } else if (idAlarma == 4 | idAlarma == 5) {
+        // Depositos Monedas
+        DepositoMonedas moneda = monedas.findByKey("200");
+        moneda.setCantidad(20);
+        monedas.addElement("200", moneda);
+      }
+
+      else if (idAlarma == 6 | idAlarma == 7) {
+        // Depositos Monedas
+        DepositoMonedas moneda = monedas.findByKey("500");
+        moneda.setCantidad(20);
+        monedas.addElement("500", moneda);
+      }
+
+      else if (idAlarma == 8 | idAlarma == 12) {
+        recargarIngredienteEspecifico("Agua");
+      }
+
+      else if (idAlarma == 9 | idAlarma == 13) {
+        recargarIngredienteEspecifico("Cafe");
+      }
+
+      else if (idAlarma == 10 | idAlarma == 14) {
+        recargarIngredienteEspecifico("Azucar");
+      }
+
+      else if (idAlarma == 11 | idAlarma == 15) {
+        recargarIngredienteEspecifico("Vaso");
+      }
+
+      quitarAlarma(idAlarma + "");
+
+      if (alarmas.getValues().isEmpty()) {
+        frame.setEnabled(true);
+        frame.interfazHabilitada();
+
+        System.out.println("Entra al if de habilitacion");
+      }
+
+      // Respaldo
+      respaldarMaq();
+      actualizarRecetasGraf();
+      actualizarInsumosGraf();
+      actualizarAlarmasGraf();
+
+      // ResetAlarmas
+
+            // Envio a Servidor
+      brokerServicePrx.sendAlarm(codMaquina, idAlarma+"", null, null, null, cantidad, null, alarmaServicePrx);
+      //alarmaServicePrx.recibirNotificacionAbastesimiento(codMaquina, idAlarma + "", cantidad);
+    }
+  }
+
+  public void quitarAlarma(String tipo) {
+    alarmas.removeElement(tipo);
+  }
+
+  public void recargarIngredienteEspecifico(String ingrediente) {
+    Ingrediente ing = ingredientes.findByKey(ingrediente);
+    ing.setCantidad(ing.getMaximo());
+    ingredientes.addElement(ingrediente, ing);
+  }
+
+  public void eventos() {
+
+    frame.getBtnIngresar100().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
+        frame.getTextAreaSaldo().setText((saldo + 100) + "");
+        suma += 100;
+        DepositoMonedas moneda = monedas.findByKey("100");
+        moneda.setCantidad(moneda.getCantidad() + 1);
+        monedas.addElement("100", moneda);
+        actualizarInsumosGraf();
+
+      }
+    });
+
+    frame.getBtnIngresar200().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
+        frame.getTextAreaSaldo().setText((saldo + 200) + "");
+        suma += 200;
+        DepositoMonedas moneda = monedas.findByKey("200");
+        moneda.setCantidad(moneda.getCantidad() + 1);
+        monedas.addElement("200", moneda);
+        actualizarInsumosGraf();
+
+      }
+    });
+
+    frame.getBtnIngresar500().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        int saldo = Integer.parseInt(frame.getTextAreaSaldo().getText());
+        frame.getTextAreaSaldo().setText((saldo + 500) + "");
+        suma += 500;
+        DepositoMonedas moneda = monedas.findByKey("500");
+        moneda.setCantidad(moneda.getCantidad() + 1);
+        monedas.addElement("500", moneda);
+        actualizarInsumosGraf();
 
-			}
-		});
+      }
+    });
 
-		frame.getBtnCancelar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.getTextAreaSaldo().setText("0");
+    frame.getBtnCancelar().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        frame.getTextAreaSaldo().setText("0");
 
-				if (suma > 0) {
+        if (suma > 0) {
 
-					frame.getTextAreaDevuelta().setText(
-							frame.getTextAreaDevuelta().getText()
-									+ "Se devolvio: " + suma + "\n");
+          frame.getTextAreaDevuelta().setText(
+              frame.getTextAreaDevuelta().getText()
+                  + "Se devolvio: " + suma + "\n");
 
-					devolverMonedas();
+          devolverMonedas();
 
-				}
+        }
 
-			}
-		});
+      }
+    });
 
-		frame.getBtnVerificar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+    frame.getBtnVerificar().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
 
-				int precio = 0;
-				List<Receta> rec = recetas.getValues();
-				for (int i = 0; i < rec.size(); i++) {
+        int precio = 0;
+        List<Receta> rec = recetas.getValues();
+        for (int i = 0; i < rec.size(); i++) {
 
-					if (frame
-							.getComboBoxProducto()
-							.getSelectedItem()
-							.equals(rec.get(i)
-									.getDescripcion())) {
-						precio = rec.get(i).getValor();
-					}
+          if (frame
+              .getComboBoxProducto()
+              .getSelectedItem()
+              .equals(rec.get(i)
+                  .getDescripcion())) {
+            precio = rec.get(i).getValor();
+          }
 
-				}
+        }
 
-				frame.getTextAreaInfo().setText(
-						frame.getTextAreaInfo().getText()
-								+ "El producto cuesta: " + precio + "\n");
-				frame.getTextAreaInfo().repaint();
-			}
-		});
+        frame.getTextAreaInfo().setText(
+            frame.getTextAreaInfo().getText()
+                + "El producto cuesta: " + precio + "\n");
+        frame.getTextAreaInfo().repaint();
+      }
+    });
 
-		frame.getBtnOrdenar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+    frame.getBtnOrdenar().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
 
-				int precio = 0;
-				Receta temp = null;
-				List<Receta> rec = recetas.getValues();
-				for (int i = 0; i < rec.size(); i++) {
+        int precio = 0;
+        Receta temp = null;
+        List<Receta> rec = recetas.getValues();
+        for (int i = 0; i < rec.size(); i++) {
 
-					temp = rec.get(i);
+          temp = rec.get(i);
 
-					if (frame.getComboBoxProducto().getSelectedItem()
-							.equals(temp.getDescripcion())) {
-						precio = rec.get(i).getValor();
+          if (frame.getComboBoxProducto().getSelectedItem()
+              .equals(temp.getDescripcion())) {
+            precio = rec.get(i).getValor();
 
-						if (Integer.valueOf(frame.getTextAreaSaldo().getText()) >= precio) {
+            if (Integer.valueOf(frame.getTextAreaSaldo().getText()) >= precio) {
 
-							frame.getTextAreaInfo().setText(
-									frame.getTextAreaInfo().getText()
-											+ "Se ordeno: "
-											+ frame.getComboBoxProducto()
-													.getSelectedItem()
-											+ "\n");
+              frame.getTextAreaInfo().setText(
+                  frame.getTextAreaInfo().getText()
+                      + "Se ordeno: "
+                      + frame.getComboBoxProducto()
+                          .getSelectedItem()
+                      + "\n");
 
-							frame.getTextAreaSaldo().setText(
-									Integer.valueOf(frame.getTextAreaSaldo()
-											.getText()) - precio + "");
+              frame.getTextAreaSaldo().setText(
+                  Integer.valueOf(frame.getTextAreaSaldo()
+                      .getText()) - precio + "");
 
-							suma -= precio;
+              suma -= precio;
 
-							disminuirInsumos(temp);
+              disminuirInsumos(temp);
 
-							devolverMonedas();
-							verificarProductos();
-							// TODO: corregir el idVenta
-							String idV = rec.get(i).getId();
-							ventas.addElement(idV, new Venta(frame.getComboBoxProducto()
-									.getSelectedItem().toString(), idV,
-									precio, new Date()));
+              devolverMonedas();
+              verificarProductos();
+              // TODO: corregir el idVenta
+              String idV = rec.get(i).getId();
+              ventas.addElement(idV, new Venta(frame.getComboBoxProducto()
+                  .getSelectedItem().toString(), idV,
+                  precio, new Date()));
 
-							respaldarMaq();
+              respaldarMaq();
 
-							frame.getTextAreaSaldo().setText("0");
+              frame.getTextAreaSaldo().setText("0");
 
-						} else {
-							frame.getTextAreaInfo().setText(
-									frame.getTextAreaInfo().getText()
-											+ "Saldo insuficiente \n");
+            } else {
+              frame.getTextAreaInfo().setText(
+                  frame.getTextAreaInfo().getText()
+                      + "Saldo insuficiente \n");
 
-						}
+            }
 
-					}
+          }
 
-				}
+        }
 
-			}
+      }
 
-		});
+    });
 
-		frame.getBtnMantenimiento().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+    frame.getBtnMantenimiento().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
 
-				// Enviar Alarma por SCA
+        // Enviar Alarma por SCA
 
-				Alarma temp = new Alarma("1", "Se requiere mantenimiento",
-						new Date());
+        Alarma temp = new Alarma("1", "Se requiere mantenimiento",
+                new Date());
 
-				frame.getTextAreaAlarmas().setText(
-						frame.getTextAreaAlarmas().getText()
-								+ "Se genero una alarma de: Mantenimiento"
-								+ "\n");
+        frame.getTextAreaAlarmas().setText(
+            frame.getTextAreaAlarmas().getText()
+                + "Se genero una alarma de: Mantenimiento"
+                + "\n");
+            brokerServicePrx.sendAlarm(codMaquina, temp.getTipo(), null, null, null, codMaquina, null, alarmaServicePrx);
+           
+        alarmas.addElement("1", temp);
 
-				alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
+        frame.interfazDeshabilitada();
 
-				alarmas.addElement("1", temp);
+      }
+    });
 
-				frame.interfazDeshabilitada();
+    frame.getBtnEnviarReporte().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
 
-			}
-		});
+        List<Venta> vents = ventas.getValues();
+        String[] arregloVentas = new String[vents.size()];
+        for (int i = 0; i < arregloVentas.length; i++) {
+          arregloVentas[i] = vents.get(i).getId() + "#"
+              + vents.get(i).getValor();
+          System.out.println(arregloVentas[i]);
+        }
 
-		frame.getBtnEnviarReporte().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+        ventasService.registrarVenta(codMaquina, arregloVentas);
 
-				List<Venta> vents = ventas.getValues();
-				String[] arregloVentas = new String[vents.size()];
-				for (int i = 0; i < arregloVentas.length; i++) {
-					arregloVentas[i] = vents.get(i).getId() + "#"
-							+ vents.get(i).getValor();
-					System.out.println(arregloVentas[i]);
-				}
+      }
+    });
 
-				ventasService.registrarVenta(codMaquina, arregloVentas);
+    frame.getBtnActualizar().addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
 
-			}
-		});
+        cargarRecetaMaquinas();
 
-		frame.getBtnActualizar().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+      }
+    });
+  }
 
-				cargarRecetaMaquinas();
+  public void cargarRecetaMaquinas() {
 
-			}
-		});
-	}
+    recetas.setElements(new HashMap<String, Receta>());
 
-	public void cargarRecetaMaquinas() {
+    String[] recetasServer = recetaServicePrx.consultarProductos();
 
-		recetas.setElements(new HashMap<String, Receta>());
+    for (int i = 0; i < recetasServer.length; i++) {
 
-		String[] recetasServer = recetaServicePrx.consultarProductos();
+      String[] splitInicial = recetasServer[i].split("#");
 
-		for (int i = 0; i < recetasServer.length; i++) {
+      String[] receta = splitInicial[0].split("-");
 
-			String[] splitInicial = recetasServer[i].split("#");
+      HashMap<Ingrediente, Double> listaIngredientes = new HashMap<Ingrediente, Double>();
 
-			String[] receta = splitInicial[0].split("-");
+      for (int i2 = 1; i2 < splitInicial.length; i2++) {
 
-			HashMap<Ingrediente, Double> listaIngredientes = new HashMap<Ingrediente, Double>();
+        String[] splitdeIng = splitInicial[i2].split("-");
 
-			for (int i2 = 1; i2 < splitInicial.length; i2++) {
+        Ingrediente ingred = ingredientes.findByKey(splitdeIng[1]);
+        if (ingred == null) {
+          ingred = new Ingrediente(splitdeIng[1], splitdeIng[2], 500, 50, 1000, 1000);
+        }
+        listaIngredientes.put(ingred, Double.parseDouble(splitdeIng[4]));
 
-				String[] splitdeIng = splitInicial[i2].split("-");
+      }
 
-				Ingrediente ingred = ingredientes.findByKey(splitdeIng[1]);
-				if (ingred == null) {
-					ingred = new Ingrediente(splitdeIng[1], splitdeIng[2], 500, 50, 1000, 1000);
-				}
-				listaIngredientes.put(ingred, Double.parseDouble(splitdeIng[4]));
+      Receta r = new Receta(receta[1], receta[0],
+          Integer.parseInt(receta[2]), listaIngredientes);
 
-			}
+      recetas.addElement(receta[0], r);
+    }
 
-			Receta r = new Receta(receta[1], receta[0],
-					Integer.parseInt(receta[2]), listaIngredientes);
+    // Actualizar Archivo Plano
+    recetas.saveData();
+    actualizarInsumosGraf();
+    actualizarRecetasGraf();
+    actualizarRecetasCombo();
+  }
 
-			recetas.addElement(receta[0], r);
-		}
+  public void cargarRecetaMaquinas(String[] recetasProxy) {
 
-		// Actualizar Archivo Plano
-		recetas.saveData();
-		actualizarInsumosGraf();
-		actualizarRecetasGraf();
-		actualizarRecetasCombo();
-	}
+    recetas.setElements(new HashMap<String, Receta>());
 
-	public void respaldarMaq() {
-		alarmas.saveData();
-		ingredientes.saveData();
-		monedas.saveData();
-		recetas.saveData();
-		ventas.saveData();
-	}
+    String[] recetasServer = recetasProxy;
 
-	public void verificarProductos() {
+    for (int i = 0; i < recetasServer.length; i++) {
 
-		Iterator<Ingrediente> itIng = ingredientes.getValues().iterator();
+      String[] splitInicial = recetasServer[i].split("#");
 
-		while (itIng.hasNext()) {
-			Ingrediente ing = itIng.next();
+      String[] receta = splitInicial[0].split("-");
 
-			if (ing.getCantidad() <= ing.getMinimo()
-					&& ing.getCantidad() > ing.getCritico()) {
+      HashMap<Ingrediente, Double> listaIngredientes = new HashMap<Ingrediente, Double>();
 
-				Alarma alIng = new Alarma(ing.getCodAlarma(),
-						ing.getNombre(), new Date());
+      for (int i2 = 1; i2 < splitInicial.length; i2++) {
 
-				if (alarmas.findByKey(ing.getCodAlarma()) == null) {
+        String[] splitdeIng = splitInicial[i2].split("-");
 
-					alarmas.addElement(ing.getCodAlarma(), alIng);
+        Ingrediente ingred = ingredientes.findByKey(splitdeIng[1]);
+        if (ingred == null) {
+          ingred = new Ingrediente(splitdeIng[1], splitdeIng[2], 500, 50, 1000, 1000);
+        }
+        listaIngredientes.put(ingred, Double.parseDouble(splitdeIng[4]));
 
-					// Enviar SCA
+      }
 
-					alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
+      Receta r = new Receta(receta[1], receta[0],
+          Integer.parseInt(receta[2]), listaIngredientes);
 
-					frame.getTextAreaAlarmas().setText(
-							frame.getTextAreaAlarmas().getText()
-									+ "Se genero una alarma de Ingrediente: "
-									+ alIng.getMensaje() + "\n");
+      recetas.addElement(receta[0], r);
+    }
 
-				}
-			}
+    // Actualizar Archivo Plano
+    recetas.saveData();
+    actualizarInsumosGraf();
+    actualizarRecetasGraf();
+    actualizarRecetasCombo();
+  }
 
-			if (ing.getCantidad() <= ing.getCritico()) {
+  public void respaldarMaq() {
+    alarmas.saveData();
+    ingredientes.saveData();
+    monedas.saveData();
+    recetas.saveData();
+    ventas.saveData();
+  }
 
-				int codAlarma = Integer.parseInt(ing.getCodAlarma()) + 4;
+  public void verificarProductos() {
 
-				Alarma alIng = new Alarma(codAlarma + "", ing.getNombre(), new Date());
+    Iterator<Ingrediente> itIng = ingredientes.getValues().iterator();
 
-				alarmas.addElement(codAlarma + "", alIng);
+    while (itIng.hasNext()) {
+      Ingrediente ing = itIng.next();
 
-				// Enviar SCA
+      if (ing.getCantidad() <= ing.getMinimo()
+          && ing.getCantidad() > ing.getCritico()) {
 
-				alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
+        Alarma alIng = new Alarma(ing.getCodAlarma(),
+            ing.getNombre(), new Date());
 
-				frame.getTextAreaAlarmas().setText(
-						frame.getTextAreaAlarmas().getText()
-								+ "Se genero una alarma de: Critico de "
-								+ alIng.getMensaje() + "\n");
+        if (alarmas.findByKey(ing.getCodAlarma()) == null) {
 
-				frame.interfazDeshabilitada();
-			}
+          alarmas.addElement(ing.getCodAlarma(), alIng);
 
-		}
-	}
+          // Enviar SCA
 
-	public void disminuirInsumos(Receta r) {
-		Iterator<Entry<Ingrediente, Double>> receta = r.getListaIngredientes()
-				.entrySet().iterator();
-		while (receta.hasNext()) {
-			Map.Entry<Ingrediente, Double> ingRec = (Map.Entry<Ingrediente, Double>) receta.next();
-			Ingrediente ingrediente = ingredientes.findByKey(ingRec.getKey().getNombre());
-			ingrediente.setCantidad(ingrediente.getCantidad() - ingRec.getValue());
-			ingredientes.addElement(ingrediente.getNombre(), ingrediente);
-		}
-		// Modificar XML
-		actualizarInsumosGraf();
-	}
+          brokerServicePrx.sendAlarm(codMaquina, alIng.getTipo(), null, null, ing.getCodAlarma(), ing.getCantidad(), null, alarmaServicePrx);
+          
+          //alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
 
-	public void arrancarMaquina() {
-		codMaquina = quemarCodMaquina();
-		// Interfaz
-		actualizarRecetasCombo();
-		actualizarRecetasGraf();
-		actualizarInsumosGraf();
-		actualizarAlarmasGraf();
+          frame.getTextAreaAlarmas().setText(
+              frame.getTextAreaAlarmas().getText()
+                  + "Se genero una alarma de Ingrediente: "
+                  + alIng.getMensaje() + "\n");
 
-	}
+        }
+      }
 
-	public void actualizarAlarmasGraf() {
+      if (ing.getCantidad() <= ing.getCritico()) {
 
-		frame.getTextAreaAlarmas().setText("");
+        int codAlarma = Integer.parseInt(ing.getCodAlarma()) + 4;
 
-	}
+        Alarma alIng = new Alarma(codAlarma + "", ing.getNombre(), new Date());
 
-	public void actualizarInsumosGraf() {
+        alarmas.addElement(codAlarma + "", alIng);
 
-		frame.getTextAreaInsumos().setText("");
+        // Enviar SCA
 
-		// LLenar Insumos
-		Iterator<Ingrediente> it = ingredientes.getValues().iterator();
-		while (it.hasNext()) {
-			Ingrediente ing = it.next();
+        //alarmaServicePrx.recibirNotificacionEscasezIngredientes(ing.getNombre(), codMaquina);
+        brokerServicePrx.sendAlarm(codMaquina, alIng.getTipo(), null, null, ing.getCodAlarma(), ing.getCantidad(), null, alarmaServicePrx);
 
-			frame.getTextAreaInsumos().setText(
-					frame.getTextAreaInsumos().getText()
-							+ ing.getNombre() + ": "
-							+ ing.getCantidad() + "\n");
+        frame.getTextAreaAlarmas().setText(
+            frame.getTextAreaAlarmas().getText()
+                + "Se genero una alarma de: Critico de "
+                + alIng.getMensaje() + "\n");
 
-		}
-		DepositoMonedas dep = monedas.findByKey("100");
-		frame.getTextAreaInsumos().setText(
-				frame.getTextAreaInsumos().getText() + "Deposito "
-						+ dep.getTipo() + ": "
-						+ dep.getCantidad() + "\n");
-		dep = monedas.findByKey("200");
-		frame.getTextAreaInsumos().setText(
-				frame.getTextAreaInsumos().getText() + "Deposito "
-						+ dep.getTipo() + ": "
-						+ dep.getCantidad() + "\n");
-		dep = monedas.findByKey("500");
-		frame.getTextAreaInsumos().setText(
-				frame.getTextAreaInsumos().getText() + "Deposito "
-						+ dep.getTipo() + ": "
-						+ dep.getCantidad() + "\n");
+        frame.interfazDeshabilitada();
+      }
 
-	}
+    }
+  }
 
-	public void actualizarRecetasGraf() {
+  public void disminuirInsumos(Receta r) {
+    Iterator<Entry<Ingrediente, Double>> receta = r.getListaIngredientes()
+        .entrySet().iterator();
+    while (receta.hasNext()) {
+      Map.Entry<Ingrediente, Double> ingRec = (Map.Entry<Ingrediente, Double>) receta.next();
+      Ingrediente ingrediente = ingredientes.findByKey(ingRec.getKey().getNombre());
+      ingrediente.setCantidad(ingrediente.getCantidad() - ingRec.getValue());
+      ingredientes.addElement(ingrediente.getNombre(), ingrediente);
+    }
+    // Modificar XML
+    actualizarInsumosGraf();
+  }
 
-		frame.getTextAreaRecetas().setText("");
+  public void arrancarMaquina() {
+    codMaquina = quemarCodMaquina();
+    // Interfaz
+    actualizarRecetasCombo();
+    actualizarRecetasGraf();
+    actualizarInsumosGraf();
+    actualizarAlarmasGraf();
 
-		// Llenar Recetas
+  }
 
-		Iterator<Receta> it2 = recetas.getValues().iterator();
-		while (it2.hasNext()) {
+  public void actualizarAlarmasGraf() {
 
-			Receta temp = it2.next();
-			frame.getTextAreaRecetas().setText(
-					frame.getTextAreaRecetas().getText()
-							+ temp.getDescripcion() + "\n");
+    frame.getTextAreaAlarmas().setText("");
 
-		}
+  }
 
-	}
+  public void actualizarInsumosGraf() {
 
-	public void actualizarRecetasCombo() {
+    frame.getTextAreaInsumos().setText("");
 
-		// Reestablece Combobox
-		frame.getComboBoxProducto().removeAllItems();
+    // LLenar Insumos
+    Iterator<Ingrediente> it = ingredientes.getValues().iterator();
+    while (it.hasNext()) {
+      Ingrediente ing = it.next();
 
-		// LLenar Combo
-		List<Receta> rec = recetas.getValues();
-		for (int i = 0; i < rec.size(); i++) {
+      frame.getTextAreaInsumos().setText(
+          frame.getTextAreaInsumos().getText()
+              + ing.getNombre() + ": "
+              + ing.getCantidad() + "\n");
 
-			frame.getComboBoxProducto().addItem(
-					rec.get(i).getDescripcion());
-		}
-	}
+    }
+    DepositoMonedas dep = monedas.findByKey("100");
+    frame.getTextAreaInsumos().setText(
+        frame.getTextAreaInsumos().getText() + "Deposito "
+            + dep.getTipo() + ": "
+            + dep.getCantidad() + "\n");
+    dep = monedas.findByKey("200");
+    frame.getTextAreaInsumos().setText(
+        frame.getTextAreaInsumos().getText() + "Deposito "
+            + dep.getTipo() + ": "
+            + dep.getCantidad() + "\n");
+    dep = monedas.findByKey("500");
+    frame.getTextAreaInsumos().setText(
+        frame.getTextAreaInsumos().getText() + "Deposito "
+            + dep.getTipo() + ": "
+            + dep.getCantidad() + "\n");
 
-	private int quemarCodMaquina() {
-		int retorno = -2;
+  }
 
-		FileInputStream fstream;
-		try {
-			String path = "codMaquina.cafe";
-			File file = new File(path);
+  public void actualizarRecetasGraf() {
 
-			fstream = new FileInputStream(file);
+    frame.getTextAreaRecetas().setText("");
 
-			DataInputStream entrada = new DataInputStream(fstream);
+    // Llenar Recetas
 
-			BufferedReader buffer = new BufferedReader(new InputStreamReader(
-					entrada));
+    Iterator<Receta> it2 = recetas.getValues().iterator();
+    while (it2.hasNext()) {
 
-			retorno = Integer.parseInt(buffer.readLine());
+      Receta temp = it2.next();
+      frame.getTextAreaRecetas().setText(
+          frame.getTextAreaRecetas().getText()
+              + temp.getDescripcion() + "\n");
 
-			entrada.close();
+    }
 
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+  }
 
-		System.out.println(retorno + " RETORRRNO");
+  public void actualizarRecetasCombo() {
 
-		return retorno;
-	}
+    // Reestablece Combobox
+    frame.getComboBoxProducto().removeAllItems();
 
-	public void devolverMonedas() {
-		// Metodo para devolver monedas
-		int monedas100 = 0;
-		int monedas200 = 0;
-		int monedas500 = 0;
-		if (suma / 500 > 0) {
-			monedas500 += (int) suma / 500;
-			DepositoMonedas moneda = monedas.findByKey("500");
-			moneda.setCantidad(moneda.getCantidad() - monedas500);
-			monedas.addElement("500", moneda);
-			suma -= 500 * ((int) suma / 500);
+    // LLenar Combo
+    List<Receta> rec = recetas.getValues();
+    for (int i = 0; i < rec.size(); i++) {
 
-		}
+      frame.getComboBoxProducto().addItem(
+          rec.get(i).getDescripcion());
+    }
+  }
 
-		if (suma / 200 > 0) {
+  private int quemarCodMaquina() {
+    int retorno = -2;
 
-			monedas200 += (int) suma / 200;
-			DepositoMonedas moneda = monedas.findByKey("200");
-			moneda.setCantidad(moneda.getCantidad() - monedas200);
-			monedas.addElement("200", moneda);
-			suma -= 200 * ((int) suma / 200);
+    FileInputStream fstream;
+    try {
+      String path = "codMaquina.cafe";
+      File file = new File(path);
 
-		}
-		if (suma / 100 > 0) {
-			monedas100 += (int) suma / 100;
-			DepositoMonedas moneda = monedas.findByKey("100");
-			moneda.setCantidad(moneda.getCantidad() - monedas100);
-			monedas.addElement("100", moneda);
-			suma -= 100 * ((int) suma / 100);
-		}
-		if (suma != 0) {
-			System.out.println("Ocurrio un error en dar devueltas: " + suma);
-		}
+      fstream = new FileInputStream(file);
 
-		frame.getTextAreaDevuelta().setText(
-				frame.getTextAreaDevuelta().getText() + "Se devolvieron: "
-						+ monedas500 + " monedas de 500, " + monedas200
-						+ " monedas de 200 y " + monedas100
-						+ " monedas de 100 \n");
+      DataInputStream entrada = new DataInputStream(fstream);
 
-		actualizarInsumosGraf();
-		verificarMonedas();
+      BufferedReader buffer = new BufferedReader(new InputStreamReader(
+          entrada));
 
-	}
+      retorno = Integer.parseInt(buffer.readLine());
 
-	public void verificarMonedas() {
+      entrada.close();
 
-		// Alarma (Generada por Uso)
-		DepositoMonedas moneda = monedas.findByKey("100");
-		if (moneda.getCantidad() <= moneda.getMinimo()
-				&& moneda.getCantidad() > moneda.getCritico()) {
+    } catch (IOException e1) {
+      // TODO Auto-generated catch block
+      e1.printStackTrace();
+    }
 
-			Alarma alMon = new Alarma("2", "Faltan monedas de 100", new Date());
+    System.out.println(retorno + " RETORRRNO");
 
-			if (alarmas.findByKey("2") == null) {
-				alarmas.addElement("2", alMon);
+    return retorno;
+  }
 
-				alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
-				frame.getTextAreaAlarmas().setText(
-						frame.getTextAreaAlarmas().getText()
-								+ "Se genero una alarma de: Monedas de 100"
-								+ "\n");
+  public void devolverMonedas() {
+    // Metodo para devolver monedas
+    int monedas100 = 0;
+    int monedas200 = 0;
+    int monedas500 = 0;
+    if (suma / 500 > 0) {
+      monedas500 += (int) suma / 500;
+      DepositoMonedas moneda = monedas.findByKey("500");
+      moneda.setCantidad(moneda.getCantidad() - monedas500);
+      monedas.addElement("500", moneda);
+      suma -= 500 * ((int) suma / 500);
 
-			}
-		}
+    }
 
-		if (moneda.getCantidad() <= moneda.getCritico()) {
+    if (suma / 200 > 0) {
 
-			Alarma alMon = new Alarma("3",
-					"ESTADO CRITICO: Faltan monedas de 100", new Date());
-			alarmas.addElement("3", alMon);
+      monedas200 += (int) suma / 200;
+      DepositoMonedas moneda = monedas.findByKey("200");
+      moneda.setCantidad(moneda.getCantidad() - monedas200);
+      monedas.addElement("200", moneda);
+      suma -= 200 * ((int) suma / 200);
 
-			// Enviar SCA
-			alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
+    }
+    if (suma / 100 > 0) {
+      monedas100 += (int) suma / 100;
+      DepositoMonedas moneda = monedas.findByKey("100");
+      moneda.setCantidad(moneda.getCantidad() - monedas100);
+      monedas.addElement("100", moneda);
+      suma -= 100 * ((int) suma / 100);
+    }
+    if (suma != 0) {
+      System.out.println("Ocurrio un error en dar devueltas: " + suma);
+    }
 
-			frame.getTextAreaAlarmas().setText(
-					frame.getTextAreaAlarmas().getText()
-							+ "Se genero una alarma de: Critica Monedas de 100"
-							+ "\n");
+    frame.getTextAreaDevuelta().setText(
+        frame.getTextAreaDevuelta().getText() + "Se devolvieron: "
+            + monedas500 + " monedas de 500, " + monedas200
+            + " monedas de 200 y " + monedas100
+            + " monedas de 100 \n");
 
-			frame.interfazDeshabilitada();
+    actualizarInsumosGraf();
+    verificarMonedas();
 
-		}
-		moneda = monedas.findByKey("200");
-		if (moneda.getCantidad() <= moneda.getMinimo()
-				&& moneda.getCantidad() > moneda.getCritico()) {
+  }
 
-			Alarma alMon = new Alarma("4", "Faltan monedas de 200", new Date());
+  public void verificarMonedas() {
 
-			if (alarmas.findByKey("4") == null) {
-				alarmas.addElement("4", alMon);
+    // Alarma (Generada por Uso)
+    DepositoMonedas moneda = monedas.findByKey("100");
+    if (moneda.getCantidad() <= moneda.getMinimo()
+        && moneda.getCantidad() > moneda.getCritico()) {
 
-				// Enviar SCA
+      Alarma alMon = new Alarma("2", "Faltan monedas de 100", new Date());
 
-				alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
+      if (alarmas.findByKey("2") == null) {
+        alarmas.addElement("2", alMon);
 
-				frame.getTextAreaAlarmas().setText(
-						frame.getTextAreaAlarmas().getText()
-								+ "Se genero una alarma de: Mondedas de 200"
-								+ "\n");
+        brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.CIEN, alarmaServicePrx);
+        
+        //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
+        frame.getTextAreaAlarmas().setText(
+            frame.getTextAreaAlarmas().getText()
+                + "Se genero una alarma de: Monedas de 100"
+                + "\n");
 
-			}
-		}
+      }
+    }
 
-		if (moneda.getCantidad() <= moneda.getCritico()) {
+    if (moneda.getCantidad() <= moneda.getCritico()) {
 
-			Alarma alMon = new Alarma("5",
-					"ESTADO CRITICO: Faltan monedas de 200", new Date());
-			alarmas.addElement("5", alMon);
+      Alarma alMon = new Alarma("3",
+          "ESTADO CRITICO: Faltan monedas de 100", new Date());
+      alarmas.addElement("3", alMon);
 
-			// Enviar SCA
+      // Enviar SCA
+            //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.CIEN, codMaquina);
+      brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.CIEN, alarmaServicePrx);
 
-			alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
+      frame.getTextAreaAlarmas().setText(
+          frame.getTextAreaAlarmas().getText()
+              + "Se genero una alarma de: Critica Monedas de 100"
+              + "\n");
 
-			frame.getTextAreaAlarmas()
-					.setText(
-							frame.getTextAreaAlarmas().getText()
-									+ "Se genero una alarma de: Critica de Monedas de 200"
-									+ "\n");
+      frame.interfazDeshabilitada();
 
-			frame.interfazDeshabilitada();
+    }
+    moneda = monedas.findByKey("200");
+    if (moneda.getCantidad() <= moneda.getMinimo()
+        && moneda.getCantidad() > moneda.getCritico()) {
 
-		}
-		moneda = monedas.findByKey("500");
+      Alarma alMon = new Alarma("4", "Faltan monedas de 200", new Date());
 
-		if (moneda.getCantidad() <= moneda.getMinimo()
-				&& moneda.getCantidad() > moneda.getCritico()) {
+      if (alarmas.findByKey("4") == null) {
+        alarmas.addElement("4", alMon);
 
-			Alarma alMon = new Alarma("6", "Faltan monedas de 500", new Date());
-			if (alarmas.findByKey("6") == null) {
-				alarmas.addElement("6", alMon);
+        // Enviar SCA
 
-				// Enviar SCA
+                //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
+        brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.DOCIENTOS, alarmaServicePrx);
 
-				alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
+        frame.getTextAreaAlarmas().setText(
+            frame.getTextAreaAlarmas().getText()
+                + "Se genero una alarma de: Mondedas de 200"
+                + "\n");
 
-				frame.getTextAreaAlarmas().setText(
-						frame.getTextAreaAlarmas().getText()
-								+ "Se genero una alarma de: Monedas de 500"
-								+ "\n");
+      }
+    }
 
-			}
-		}
-		if (moneda.getCantidad() <= moneda.getCritico()) {
+    if (moneda.getCantidad() <= moneda.getCritico()) {
 
-			Alarma alMon = new Alarma("7",
-					"ESTADO CRITICO: Faltan monedas de 500", new Date());
-			alarmas.addElement("7", alMon);
+      Alarma alMon = new Alarma("5",
+          "ESTADO CRITICO: Faltan monedas de 200", new Date());
+      alarmas.addElement("5", alMon);
 
-			alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
+      // Enviar SCA
 
-			frame.getTextAreaAlarmas().setText(
-					frame.getTextAreaAlarmas().getText()
-							+ "Se genero una alarma de: Critica Monedas de 500"
-							+ "\n");
+            //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.DOCIENTOS, codMaquina);
+      brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.DOCIENTOS, alarmaServicePrx);
 
-			frame.interfazDeshabilitada();
+      frame.getTextAreaAlarmas()
+          .setText(
+              frame.getTextAreaAlarmas().getText()
+                  + "Se genero una alarma de: Critica de Monedas de 200"
+                  + "\n");
 
-		}
+      frame.interfazDeshabilitada();
 
-	}
+    }
+    moneda = monedas.findByKey("500");
+
+    if (moneda.getCantidad() <= moneda.getMinimo()
+        && moneda.getCantidad() > moneda.getCritico()) {
+
+      Alarma alMon = new Alarma("6", "Faltan monedas de 500", new Date());
+      if (alarmas.findByKey("6") == null) {
+        alarmas.addElement("6", alMon);
+
+        // Enviar SCA
+
+                //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
+        brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.QUINIENTOS, alarmaServicePrx);
+
+        frame.getTextAreaAlarmas().setText(
+            frame.getTextAreaAlarmas().getText()
+                + "Se genero una alarma de: Monedas de 500"
+                + "\n");
+
+      }
+    }
+    if (moneda.getCantidad() <= moneda.getCritico()) {
+
+      Alarma alMon = new Alarma("7",
+          "ESTADO CRITICO: Faltan monedas de 500", new Date());
+      alarmas.addElement("7", alMon);
+
+            //alarmaServicePrx.recibirNotificacionInsuficienciaMoneda(Moneda.QUINIENTOS, codMaquina);
+      brokerServicePrx.sendAlarm(codMaquina, alMon.getTipo(), null, null, moneda.getTipo(), moneda.getCantidad(), Moneda.QUINIENTOS, alarmaServicePrx);
+
+      frame.getTextAreaAlarmas().setText(
+          frame.getTextAreaAlarmas().getText()
+              + "Se genero una alarma de: Critica Monedas de 500"
+              + "\n");
+
+      frame.interfazDeshabilitada();
+
+    }
+
+  }
+
+  
 
 }
+

@@ -4,6 +4,7 @@ import com.zeroc.Ice.Current;
 
 import servicios.AlarmaServicePrx;
 import servicios.BrokerService;
+import servicios.Moneda;
 import servicios.ServerRecieveAlarmServicePrx;
 
 
@@ -41,10 +42,12 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void sendAlarm(AlarmaServicePrx alarmaServicePrx, Current current) {
+  public void sendAlarm(int codMaquina,String type,String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaServicePrx, Current current) {
     ServerRecieveAlarmServicePrx server = locateServer();
+    System.out.println("Server seleccionado: " + server.toString());
     try {
-      server.receiveAlarm(alarmaServicePrx);
+      System.out.println("Enviando alarma al servidor: " + server.toString());
+      server.receiveAlarm(codMaquina,type,idInsumo,idSumin,idIngrediente,cantidad,moneda,alarmaServicePrx);
     } catch (Exception e) {
       System.err.println("Error al procesar la alarma en el servidor: " + server.toString());
     }

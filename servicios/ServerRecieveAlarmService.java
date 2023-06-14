@@ -17,7 +17,7 @@ package servicios;
 
 public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
 {
-    void receiveAlarm(AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void receiveAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -54,10 +54,24 @@ public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        int iceP_codMaquina;
+        String iceP_type;
+        String iceP_idInsumo;
+        String iceP_idSumin;
+        String iceP_idIngrediente;
+        int iceP_cantidad;
+        Moneda iceP_moneda;
         AlarmaServicePrx iceP_alarmaService;
+        iceP_codMaquina = istr.readInt();
+        iceP_type = istr.readString();
+        iceP_idInsumo = istr.readString();
+        iceP_idSumin = istr.readString();
+        iceP_idIngrediente = istr.readString();
+        iceP_cantidad = istr.readInt();
+        iceP_moneda = Moneda.ice_read(istr);
         iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.receiveAlarm(iceP_alarmaService, current);
+        obj.receiveAlarm(iceP_codMaquina, iceP_type, iceP_idInsumo, iceP_idSumin, iceP_idIngrediente, iceP_cantidad, iceP_moneda, iceP_alarmaService, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
