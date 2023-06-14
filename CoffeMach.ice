@@ -60,25 +60,17 @@ module servicios{
     }
 
     interface Publisher {
-
       void subscribe(Suscriber* sb);
 
     }
 
+    interface ServerRecieveAlarmService{
+      void receiveAlarm(int codMaquina,string type, AlarmaService* alarmaService);
+    }
 
     interface BrokerService{
-         void locateClient(string clientName);
-         void locateServer(string serverName);
-         void sendRequest(string clientName, string serverName, string request);
-         void sendResponse(string serverName, string clientName, string response);
-         void registerServer(string serverName);
-         void receiveAck(string serverName, string clientName);
-         void registerClient(string clientName);
-         void receiveActualization(string serverName, string clientName);
-         void sendAlarm(string serverName, string clientName);
-         void unregisterClient(string clientName);
-         void unregisterServer(string serverName);
-         void notify(string serverName, string clientName);
-         void subscribe(string serverName, string clientName);
+         void registerServer(ServerRecieveAlarmService* subscriber);
+         void unregisterServer(ServerRecieveAlarmService* subscriber);
+         void sendAlarm(int codMaquina,string type, AlarmaService* alarmaService);
         }
 }

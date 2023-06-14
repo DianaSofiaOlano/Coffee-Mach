@@ -21,7 +21,8 @@ import ingrediente.IngredienteRepositorio;
 
 public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 
-	private AlarmaServicePrx alarmaServicePrx;
+  private AlarmaServicePrx alarmaServicePrx;
+  private BrokerServicePrx brokerServicePrx;
 	private VentaServicePrx ventasService;
 
 	// @Reference
@@ -38,9 +39,13 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 	/**
 	 * @param ventas the ventas to set
 	 */
-	public void setVentas(VentaServicePrx ventasS) {
-		this.ventasService = ventasS;
-	}
+    public void setVentas(VentaServicePrx ventasS) {
+      this.ventasService = ventasS;
+    }
+  
+    public void setBrokerServicePrx(BrokerServicePrx broker) {
+      this.brokerServicePrx = broker;
+  }   
 
 	public void setAlarmaService(AlarmaServicePrx a) {
 		alarmaServicePrx = a;
@@ -308,15 +313,14 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 				// Enviar Alarma por SCA
 
 				Alarma temp = new Alarma("1", "Se requiere mantenimiento",
-						new Date());
+                new Date());
 
 				frame.getTextAreaAlarmas().setText(
 						frame.getTextAreaAlarmas().getText()
 								+ "Se genero una alarma de: Mantenimiento"
 								+ "\n");
-
-				alarmaServicePrx.recibirNotificacionMalFuncionamiento(codMaquina, "Se requiere mantenimiento");
-
+            brokerServicePrx.sendAlarm(codMaquina, temp.getTipo(), alarmaServicePrx);
+            System.out.println("Se envio la alarma de mantenimiento"+brokerServicePrx.toString());
 				alarmas.addElement("1", temp);
 
 				frame.interfazDeshabilitada();
@@ -771,5 +775,7 @@ public class ControladorMQ implements Runnable, ServicioAbastecimiento {
 		}
 
 	}
+
+  
 
 }

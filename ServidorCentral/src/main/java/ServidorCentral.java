@@ -28,6 +28,8 @@ public class ServidorCentral {
 
             Alarma alarma = new Alarma(new AlarmasManager(communicator));
 
+            
+
             ProductoReceta recetas = new ProductoReceta();
             recetas.setCommunicator(communicator);
 
@@ -35,13 +37,28 @@ public class ServidorCentral {
             ventas.setCommunicator(communicator);
 
             PublisherProxyImpl publisher = new PublisherProxyImpl();
+            ServerReceiveAlarmServiceI receiveAlarms = new ServerReceiveAlarmServiceI();
 
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
             adapter2.add(publisher, Util.stringToIdentity("Publisher"));
+            adapter.add(receiveAlarms, Util.stringToIdentity("receiveAlarms"));
 
+            // Obtener el proxy del servidor
+            com.zeroc.Ice.ObjectPrx serverProxy = adapter
+                .createProxy(com.zeroc.Ice.Util.stringToIdentity("receiveAlarms"));
+            
+            
+            // Crear el objeto de servicio
+            ServerRecieveAlarmServicePrx serverAlarm = ServerRecieveAlarmServicePrx.checkedCast(serverProxy);
+
+            // Clase que implementa el servicio de recibir alarmas
+            BrokerServicePrx brokerServicePrx = BrokerServicePrx
+                .checkedCast(communicator.stringToProxy("Broker:tcp -h localhost -p 12347")).ice_twoway();
+                    
+            brokerServicePrx.registerServer(serverAlarm, null);
 
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);

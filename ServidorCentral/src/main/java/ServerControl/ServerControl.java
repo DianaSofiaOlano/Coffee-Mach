@@ -1,7 +1,6 @@
 package ServerControl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import com.zeroc.Ice.Communicator;
 
@@ -77,19 +76,18 @@ public class ServerControl {
 		return correo;
 	}
 
-	public boolean existeOperador(int codigoOperador, String contrasena) {
+    public boolean existeOperador(int codigoOperador, String contrasena) {
 
-		if (codigoOperador != 0 && contrasena != null) {
-			ConexionBD cbd = new ConexionBD(comunicator);
-			cbd.conectarBaseDatos();
-			ManejadorDatos md = new ManejadorDatos();
-			md.setConexion(cbd.getConnection());
-			boolean resultado = md.existeOperador(codigoOperador, contrasena);
-			cbd.cerrarConexion();
-			return resultado;
-		}
-		return false;
+      if (codigoOperador != 0 && contrasena != null) {
+        ConexionBD cbd = new ConexionBD(comunicator);
+        cbd.conectarBaseDatos();
+        ManejadorDatos md = new ManejadorDatos();
+        md.setConexion(cbd.getConnection());
+        boolean resultado = md.existeOperador(codigoOperador, contrasena);
+        cbd.cerrarConexion();
+        return resultado;
+      }
+      return false;
 
-	}
-
+    }
 }

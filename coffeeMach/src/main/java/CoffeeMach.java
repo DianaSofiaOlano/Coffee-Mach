@@ -19,6 +19,8 @@ public class CoffeeMach {
           communicator.propertyToProxy("recetas")).ice_twoway();
       PublisherPrx publisherPrx = PublisherPrx.checkedCast(
           communicator.propertyToProxy("publisher")).ice_twoway();
+      BrokerServicePrx brokerServicePrx = BrokerServicePrx
+                .checkedCast(communicator.stringToProxy("Broker:tcp -h localhost -p 12347")).ice_twoway();
 
       ObjectAdapter adapter = communicator.createObjectAdapter("CoffeMach");
       ControladorMQ service = new ControladorMQ();
@@ -27,6 +29,7 @@ public class CoffeeMach {
       service.setAlarmaService(alarmaS);
       service.setVentas(ventas);
       service.setRecetaServicePrx(recetaServicePrx);
+      service.setBrokerServicePrx(brokerServicePrx);
 
       service.run();
       adapter.add((ServicioAbastecimiento) service, Util.stringToIdentity("abastecer"));

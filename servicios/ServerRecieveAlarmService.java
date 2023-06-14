@@ -15,19 +15,15 @@
 
 package servicios;
 
-public interface BrokerService extends com.zeroc.Ice.Object
+public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
 {
-    void registerServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
-
-    void unregisterServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
-
-    void sendAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void receiveAlarm(int codMaquina, String type, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::BrokerService"
+        "::servicios::ServerRecieveAlarmService"
     };
 
     @Override
@@ -44,7 +40,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::BrokerService";
+        return "::servicios::ServerRecieveAlarmService";
     }
 
     /**
@@ -54,43 +50,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registerServer(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ServerRecieveAlarmServicePrx iceP_subscriber;
-        iceP_subscriber = ServerRecieveAlarmServicePrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        obj.registerServer(iceP_subscriber, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unregisterServer(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ServerRecieveAlarmServicePrx iceP_subscriber;
-        iceP_subscriber = ServerRecieveAlarmServicePrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        obj.unregisterServer(iceP_subscriber, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendAlarm(BrokerService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveAlarm(ServerRecieveAlarmService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
@@ -101,7 +61,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
         iceP_type = istr.readString();
         iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
-        obj.sendAlarm(iceP_codMaquina, iceP_type, iceP_alarmaService, current);
+        obj.receiveAlarm(iceP_codMaquina, iceP_type, iceP_alarmaService, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -112,9 +72,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "registerServer",
-        "sendAlarm",
-        "unregisterServer"
+        "receiveAlarm"
     };
 
     /** @hidden */
@@ -148,15 +106,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_registerServer(this, in, current);
-            }
-            case 5:
-            {
-                return _iceD_sendAlarm(this, in, current);
-            }
-            case 6:
-            {
-                return _iceD_unregisterServer(this, in, current);
+                return _iceD_receiveAlarm(this, in, current);
             }
         }
 
