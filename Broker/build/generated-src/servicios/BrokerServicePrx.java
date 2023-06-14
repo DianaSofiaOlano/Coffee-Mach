@@ -17,22 +17,22 @@ package servicios;
 
 public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void registerServer(ServerSubscriberPrx subscriber)
+    default void registerServer(ServerRecieveAlarmServicePrx subscriber)
     {
         registerServer(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void registerServer(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default void registerServer(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
     {
         _iceI_registerServerAsync(subscriber, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerSubscriberPrx subscriber)
+    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerRecieveAlarmServicePrx subscriber)
     {
         return _iceI_registerServerAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
     {
         return _iceI_registerServerAsync(subscriber, context, false);
     }
@@ -44,7 +44,7 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerServerAsync(ServerSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerServerAsync(ServerRecieveAlarmServicePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerServer", null, sync, null);
         f.invoke(false, context, null, ostr -> {
@@ -53,22 +53,22 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void unregisterServer(ServerSubscriberPrx subscriber)
+    default void unregisterServer(ServerRecieveAlarmServicePrx subscriber)
     {
         unregisterServer(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void unregisterServer(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default void unregisterServer(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
     {
         _iceI_unregisterServerAsync(subscriber, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerSubscriberPrx subscriber)
+    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerRecieveAlarmServicePrx subscriber)
     {
         return _iceI_unregisterServerAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
     {
         return _iceI_unregisterServerAsync(subscriber, context, false);
     }
@@ -80,7 +80,7 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unregisterServerAsync(ServerSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unregisterServerAsync(ServerRecieveAlarmServicePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unregisterServer", null, sync, null);
         f.invoke(false, context, null, ostr -> {

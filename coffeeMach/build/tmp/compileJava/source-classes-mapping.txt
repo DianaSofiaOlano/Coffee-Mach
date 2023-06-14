@@ -19,6 +19,8 @@ McControlador/VentaService.java
  McControlador.VentaService
 monedero/MonedasRepositorio.java
  monedero.MonedasRepositorio
+servicios/ServerRecieveAlarmServicePrx.java
+ servicios.ServerRecieveAlarmServicePrx
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 suministro/SuministroServiceImp.java
@@ -33,10 +35,10 @@ servicios/RecetaService.java
  servicios.RecetaService$1
 servicios/_SuscriberPrxI.java
  servicios._SuscriberPrxI
-servicios/_ServerSubscriberPrxI.java
- servicios._ServerSubscriberPrxI
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
+servicios/_ServerRecieveAlarmServicePrxI.java
+ servicios._ServerRecieveAlarmServicePrxI
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
@@ -59,8 +61,9 @@ servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/BrokerServicePrx.java
  servicios.BrokerServicePrx
-servicios/ServerSubscriberPrx.java
- servicios.ServerSubscriberPrx
+servicios/ServerRecieveAlarmService.java
+ servicios.ServerRecieveAlarmService
+ servicios.ServerRecieveAlarmService$1
 McControlador/VentaRepositorio.java
  McControlador.VentaRepositorio
 servicios/_ServicioComLogisticaPrxI.java
@@ -104,9 +107,6 @@ monedero/DepositoMonedas.java
  monedero.DepositoMonedas
 alarma/AlarmaServiceImp.java
  alarma.AlarmaServiceImp
-servicios/ServerSubscriber.java
- servicios.ServerSubscriber
- servicios.ServerSubscriber$1
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 servicios/SuscriberPrx.java

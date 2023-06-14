@@ -25,16 +25,22 @@ public class ServidorCentral {
 
             Alarma alarma = new Alarma(new AlarmasManager(communicator));
 
+            
+
             ProductoReceta recetas = new ProductoReceta();
             recetas.setCommunicator(communicator);
 
             VentasManager ventas = new VentasManager();
             ventas.setCommunicator(communicator);
 
+            // Clase que implementa el servicio de recibir alarmas
+            ServerReceiveAlarmServiceI receiveAlarms = new ServerReceiveAlarmServiceI();
+
             adapter.add(alarma, Util.stringToIdentity("Alarmas"));
             adapter.add(ventas, Util.stringToIdentity("Ventas"));
             adapter.add(log, Util.stringToIdentity("logistica"));
             adapter.add(recetas, Util.stringToIdentity("Recetas"));
+            adapter.add(receiveAlarms, Util.stringToIdentity("receiveAlarms"));
 
             ControladorRecetas controladorRecetas = new ControladorRecetas();
             controladorRecetas.setRecetaService(recetas);

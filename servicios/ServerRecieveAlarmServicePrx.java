@@ -15,98 +15,26 @@
 
 package servicios;
 
-public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
+public interface ServerRecieveAlarmServicePrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void registerServer(ServerRecieveAlarmServicePrx subscriber)
+    default void receiveAlarm(AlarmaServicePrx alarmaService)
     {
-        registerServer(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        receiveAlarm(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void registerServer(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
+    default void receiveAlarm(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        _iceI_registerServerAsync(subscriber, context, true).waitForResponse();
+        _iceI_receiveAlarmAsync(alarmaService, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerRecieveAlarmServicePrx subscriber)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(AlarmaServicePrx alarmaService)
     {
-        return _iceI_registerServerAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_receiveAlarmAsync(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> registerServerAsync(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> receiveAlarmAsync(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
-        return _iceI_registerServerAsync(subscriber, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_subscriber -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_registerServerAsync(ServerRecieveAlarmServicePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "registerServer", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_subscriber);
-                 }, null);
-        return f;
-    }
-
-    default void unregisterServer(ServerRecieveAlarmServicePrx subscriber)
-    {
-        unregisterServer(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void unregisterServer(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
-    {
-        _iceI_unregisterServerAsync(subscriber, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerRecieveAlarmServicePrx subscriber)
-    {
-        return _iceI_unregisterServerAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> unregisterServerAsync(ServerRecieveAlarmServicePrx subscriber, java.util.Map<String, String> context)
-    {
-        return _iceI_unregisterServerAsync(subscriber, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_subscriber -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unregisterServerAsync(ServerRecieveAlarmServicePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unregisterServer", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_subscriber);
-                 }, null);
-        return f;
-    }
-
-    default void sendAlarm(AlarmaServicePrx alarmaService)
-    {
-        sendAlarm(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void sendAlarm(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
-    {
-        _iceI_sendAlarmAsync(alarmaService, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(AlarmaServicePrx alarmaService)
-    {
-        return _iceI_sendAlarmAsync(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
-    {
-        return _iceI_sendAlarmAsync(alarmaService, context, false);
+        return _iceI_receiveAlarmAsync(alarmaService, context, false);
     }
 
     /**
@@ -116,9 +44,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendAlarmAsync(AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveAlarmAsync(AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendAlarm", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveAlarm", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeProxy(iceP_alarmaService);
                  }, null);
@@ -131,9 +59,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static BrokerServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static ServerRecieveAlarmServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -143,9 +71,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static BrokerServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static ServerRecieveAlarmServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -155,9 +83,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static BrokerServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static ServerRecieveAlarmServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -168,9 +96,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static BrokerServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static ServerRecieveAlarmServicePrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -178,9 +106,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static BrokerServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static ServerRecieveAlarmServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -189,9 +117,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static BrokerServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static ServerRecieveAlarmServicePrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, BrokerServicePrx.class, _BrokerServicePrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ServerRecieveAlarmServicePrx.class, _ServerRecieveAlarmServicePrxI.class);
     }
 
     /**
@@ -200,9 +128,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default BrokerServicePrx ice_context(java.util.Map<String, String> newContext)
+    default ServerRecieveAlarmServicePrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (BrokerServicePrx)_ice_context(newContext);
+        return (ServerRecieveAlarmServicePrx)_ice_context(newContext);
     }
 
     /**
@@ -211,9 +139,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default BrokerServicePrx ice_adapterId(String newAdapterId)
+    default ServerRecieveAlarmServicePrx ice_adapterId(String newAdapterId)
     {
-        return (BrokerServicePrx)_ice_adapterId(newAdapterId);
+        return (ServerRecieveAlarmServicePrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -222,9 +150,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default BrokerServicePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default ServerRecieveAlarmServicePrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (BrokerServicePrx)_ice_endpoints(newEndpoints);
+        return (ServerRecieveAlarmServicePrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -233,9 +161,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default BrokerServicePrx ice_locatorCacheTimeout(int newTimeout)
+    default ServerRecieveAlarmServicePrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (BrokerServicePrx)_ice_locatorCacheTimeout(newTimeout);
+        return (ServerRecieveAlarmServicePrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -244,9 +172,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default BrokerServicePrx ice_invocationTimeout(int newTimeout)
+    default ServerRecieveAlarmServicePrx ice_invocationTimeout(int newTimeout)
     {
-        return (BrokerServicePrx)_ice_invocationTimeout(newTimeout);
+        return (ServerRecieveAlarmServicePrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -255,9 +183,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default BrokerServicePrx ice_connectionCached(boolean newCache)
+    default ServerRecieveAlarmServicePrx ice_connectionCached(boolean newCache)
     {
-        return (BrokerServicePrx)_ice_connectionCached(newCache);
+        return (ServerRecieveAlarmServicePrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -266,9 +194,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default BrokerServicePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default ServerRecieveAlarmServicePrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (BrokerServicePrx)_ice_endpointSelection(newType);
+        return (ServerRecieveAlarmServicePrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -279,9 +207,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default BrokerServicePrx ice_secure(boolean b)
+    default ServerRecieveAlarmServicePrx ice_secure(boolean b)
     {
-        return (BrokerServicePrx)_ice_secure(b);
+        return (ServerRecieveAlarmServicePrx)_ice_secure(b);
     }
 
     /**
@@ -290,9 +218,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default BrokerServicePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default ServerRecieveAlarmServicePrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (BrokerServicePrx)_ice_encodingVersion(e);
+        return (ServerRecieveAlarmServicePrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -303,9 +231,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default BrokerServicePrx ice_preferSecure(boolean b)
+    default ServerRecieveAlarmServicePrx ice_preferSecure(boolean b)
     {
-        return (BrokerServicePrx)_ice_preferSecure(b);
+        return (ServerRecieveAlarmServicePrx)_ice_preferSecure(b);
     }
 
     /**
@@ -314,9 +242,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default BrokerServicePrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default ServerRecieveAlarmServicePrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (BrokerServicePrx)_ice_router(router);
+        return (ServerRecieveAlarmServicePrx)_ice_router(router);
     }
 
     /**
@@ -325,9 +253,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default BrokerServicePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default ServerRecieveAlarmServicePrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (BrokerServicePrx)_ice_locator(locator);
+        return (ServerRecieveAlarmServicePrx)_ice_locator(locator);
     }
 
     /**
@@ -336,9 +264,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default BrokerServicePrx ice_collocationOptimized(boolean b)
+    default ServerRecieveAlarmServicePrx ice_collocationOptimized(boolean b)
     {
-        return (BrokerServicePrx)_ice_collocationOptimized(b);
+        return (ServerRecieveAlarmServicePrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -346,9 +274,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default BrokerServicePrx ice_twoway()
+    default ServerRecieveAlarmServicePrx ice_twoway()
     {
-        return (BrokerServicePrx)_ice_twoway();
+        return (ServerRecieveAlarmServicePrx)_ice_twoway();
     }
 
     /**
@@ -356,9 +284,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default BrokerServicePrx ice_oneway()
+    default ServerRecieveAlarmServicePrx ice_oneway()
     {
-        return (BrokerServicePrx)_ice_oneway();
+        return (ServerRecieveAlarmServicePrx)_ice_oneway();
     }
 
     /**
@@ -366,9 +294,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default BrokerServicePrx ice_batchOneway()
+    default ServerRecieveAlarmServicePrx ice_batchOneway()
     {
-        return (BrokerServicePrx)_ice_batchOneway();
+        return (ServerRecieveAlarmServicePrx)_ice_batchOneway();
     }
 
     /**
@@ -376,9 +304,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default BrokerServicePrx ice_datagram()
+    default ServerRecieveAlarmServicePrx ice_datagram()
     {
-        return (BrokerServicePrx)_ice_datagram();
+        return (ServerRecieveAlarmServicePrx)_ice_datagram();
     }
 
     /**
@@ -386,9 +314,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default BrokerServicePrx ice_batchDatagram()
+    default ServerRecieveAlarmServicePrx ice_batchDatagram()
     {
-        return (BrokerServicePrx)_ice_batchDatagram();
+        return (ServerRecieveAlarmServicePrx)_ice_batchDatagram();
     }
 
     /**
@@ -397,9 +325,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default BrokerServicePrx ice_compress(boolean co)
+    default ServerRecieveAlarmServicePrx ice_compress(boolean co)
     {
-        return (BrokerServicePrx)_ice_compress(co);
+        return (ServerRecieveAlarmServicePrx)_ice_compress(co);
     }
 
     /**
@@ -408,9 +336,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default BrokerServicePrx ice_timeout(int t)
+    default ServerRecieveAlarmServicePrx ice_timeout(int t)
     {
-        return (BrokerServicePrx)_ice_timeout(t);
+        return (ServerRecieveAlarmServicePrx)_ice_timeout(t);
     }
 
     /**
@@ -419,9 +347,9 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default BrokerServicePrx ice_connectionId(String connectionId)
+    default ServerRecieveAlarmServicePrx ice_connectionId(String connectionId)
     {
-        return (BrokerServicePrx)_ice_connectionId(connectionId);
+        return (ServerRecieveAlarmServicePrx)_ice_connectionId(connectionId);
     }
 
     /**
@@ -430,13 +358,13 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @return A fixed proxy bound to the given connection.
      **/
     @Override
-    default BrokerServicePrx ice_fixed(com.zeroc.Ice.Connection connection)
+    default ServerRecieveAlarmServicePrx ice_fixed(com.zeroc.Ice.Connection connection)
     {
-        return (BrokerServicePrx)_ice_fixed(connection);
+        return (ServerRecieveAlarmServicePrx)_ice_fixed(connection);
     }
 
     static String ice_staticId()
     {
-        return "::servicios::BrokerService";
+        return "::servicios::ServerRecieveAlarmService";
     }
 }

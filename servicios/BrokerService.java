@@ -17,9 +17,9 @@ package servicios;
 
 public interface BrokerService extends com.zeroc.Ice.Object
 {
-    void registerServer(ServerSubscriberPrx subscriber, com.zeroc.Ice.Current current);
+    void registerServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
 
-    void unregisterServer(ServerSubscriberPrx subscriber, com.zeroc.Ice.Current current);
+    void unregisterServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
 
     void sendAlarm(AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
@@ -58,8 +58,8 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ServerSubscriberPrx iceP_subscriber;
-        iceP_subscriber = ServerSubscriberPrx.uncheckedCast(istr.readProxy());
+        ServerRecieveAlarmServicePrx iceP_subscriber;
+        iceP_subscriber = ServerRecieveAlarmServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
         obj.registerServer(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
@@ -76,8 +76,8 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ServerSubscriberPrx iceP_subscriber;
-        iceP_subscriber = ServerSubscriberPrx.uncheckedCast(istr.readProxy());
+        ServerRecieveAlarmServicePrx iceP_subscriber;
+        iceP_subscriber = ServerRecieveAlarmServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
         obj.unregisterServer(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());

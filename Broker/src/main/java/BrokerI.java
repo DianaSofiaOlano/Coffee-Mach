@@ -4,38 +4,38 @@ import com.zeroc.Ice.Current;
 
 import servicios.AlarmaServicePrx;
 import servicios.BrokerService;
-import servicios.ServerSubscriberPrx;
+import servicios.ServerRecieveAlarmServicePrx;
 
 
 
 public class BrokerI implements BrokerService {
 
   /* Servidores Centrales */
-  private ArrayList<ServerSubscriberPrx> servers;
+  private ArrayList<ServerRecieveAlarmServicePrx> servers;
   private int currentServerIndex = 0;
 
   // Función para localizar un servidor central disponible
-  private ServerSubscriberPrx locateServer() {
-    ServerSubscriberPrx selectedServer = servers.get(currentServerIndex);
+  private ServerRecieveAlarmServicePrx locateServer() {
+    ServerRecieveAlarmServicePrx selectedServer = servers.get(currentServerIndex);
     currentServerIndex = (currentServerIndex + 1) % servers.size();
     return selectedServer;
   }
 
   @Override
-  public void registerServer(ServerSubscriberPrx serverToRegister, Current current) {
+  public void registerServer(ServerRecieveAlarmServicePrx serverToRegister, Current current) {
     servers.add(serverToRegister);
     System.out.println("Server registrado: " + serverToRegister.toString());
   }
 
   @Override
-  public void unregisterServer(ServerSubscriberPrx serverToUnregister, Current current) {
+  public void unregisterServer(ServerRecieveAlarmServicePrx serverToUnregister, Current current) {
     servers.remove(serverToUnregister);
     System.out.println("Server eliminado: " + serverToUnregister.toString());
   }
 
   @Override
   public void sendAlarm(AlarmaServicePrx alarmaServicePrx, Current current) {
-    ServerSubscriberPrx server = locateServer();
+    ServerRecieveAlarmServicePrx server = locateServer();
     try {
       server.receiveAlarm(alarmaServicePrx);
     } catch (Exception e) {

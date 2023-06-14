@@ -1,5 +1,5 @@
 <state>
-  <timestamp value='1686716987859' />
+  <timestamp value='1686718802493' />
   <sourceSet name='default'>
     <source name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/CoffeMach.ice'>
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/ServicioComLogistica.java' />
@@ -10,7 +10,7 @@
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/RecetaService.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/Suscriber.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/Publisher.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/ServerSubscriber.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/ServerRecieveAlarmService.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/BrokerService.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/StringSeqHelper.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/MapStrIntHelper.java' />
@@ -28,8 +28,8 @@
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/_SuscriberPrxI.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/PublisherPrx.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/_PublisherPrxI.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/ServerSubscriberPrx.java' />
-      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/_ServerSubscriberPrxI.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/ServerRecieveAlarmServicePrx.java' />
+      <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/_ServerRecieveAlarmServicePrxI.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/BrokerServicePrx.java' />
       <file name='/Users/junaicode/Universidad/Semestre 7/Arquitectura de Software/Final/Coffe-Mach/coffeeMach/build/generated-src/servicios/_BrokerServicePrxI.java' />
     </source>
