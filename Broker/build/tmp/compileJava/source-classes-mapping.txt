@@ -2,9 +2,6 @@ servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
 servicios/BrokerServicePrx.java
  servicios.BrokerServicePrx
-servicios/ClientSubscriber.java
- servicios.ClientSubscriber
- servicios.ClientSubscriber$1
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 servicios/ServerSubscriberPrx.java
@@ -17,8 +14,6 @@ servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
-servicios/_ClientSubscriberPrxI.java
- servicios._ClientSubscriberPrxI
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -36,8 +31,6 @@ servicios/AlarmaServicePrx.java
 servicios/Suscriber.java
  servicios.Suscriber
  servicios.Suscriber$1
-servicios/ClientSubscriberPrx.java
- servicios.ClientSubscriberPrx
 servicios/PublisherPrx.java
  servicios.PublisherPrx
 servicios/RecetaService.java
@@ -69,12 +62,12 @@ servicios/BrokerService.java
  servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
-Broker.java
- Broker
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
 servicios/MapStrIntHelper.java
  servicios.MapStrIntHelper
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+Broker.java
+ Broker

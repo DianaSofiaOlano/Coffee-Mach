@@ -1,11 +1,13 @@
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 PublisherImpl.java
  PublisherImpl
+servicios/ServerSubscriberPrx.java
+ servicios.ServerSubscriberPrx
 servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 servicios/_ServicioComLogisticaPrxI.java
@@ -41,9 +43,13 @@ ProxyCache.java
 servicios/Publisher.java
  servicios.Publisher
  servicios.Publisher$1
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
+servicios/_ServerSubscriberPrxI.java
+ servicios._ServerSubscriberPrxI
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
+servicios/ServerSubscriber.java
+ servicios.ServerSubscriber
+ servicios.ServerSubscriber$1
 servicios/AlarmaService.java
  servicios.AlarmaService
  servicios.AlarmaService$1
@@ -53,28 +59,15 @@ servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 servicios/SuscriberPrx.java
  servicios.SuscriberPrx
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/_PublisherPrxI.java
- servicios._PublisherPrxI
-servicios/_ClientSubscriberPrxI.java
- servicios._ClientSubscriberPrxI
-servicios/ClientSubscriberPrx.java
- servicios.ClientSubscriberPrx
-servicios/ClientSubscriber.java
- servicios.ClientSubscriber
- servicios.ClientSubscriber$1
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
-servicios/ServerSubscriberPrx.java
- servicios.ServerSubscriberPrx
-servicios/_ServerSubscriberPrxI.java
- servicios._ServerSubscriberPrxI
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
-servicios/ServerSubscriber.java
- servicios.ServerSubscriber
- servicios.ServerSubscriber$1
+servicios/_PublisherPrxI.java
+ servicios._PublisherPrxI
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
