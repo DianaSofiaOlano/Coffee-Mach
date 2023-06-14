@@ -1,5 +1,3 @@
-servicios/RecetaServicePrx.java
- servicios.RecetaServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -9,10 +7,6 @@ servicios/_AlarmaServicePrxI.java
  servicios._AlarmaServicePrxI
 ServerControl/ServerControl.java
  ServerControl.ServerControl
-receta/ProductoReceta.java
- receta.ProductoReceta
-servicios/_ServicioComLogisticaPrxI.java
- servicios._ServicioComLogisticaPrxI
 modelo/AlarmaMaquina.java
  modelo.AlarmaMaquina
 modelo/Operador.java
@@ -21,8 +15,6 @@ servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 modelo/ManejadorDatos.java
  modelo.ManejadorDatos
-servicios/ServicioAbastecimientoPrx.java
- servicios.ServicioAbastecimientoPrx
 ventas/VentasManager.java
  ventas.VentasManager
 alarma/AlarmasManager.java
@@ -32,59 +24,88 @@ servicios/VentaService.java
  servicios.VentaService$1
 ServerControl/ConsolaAdministracion.java
  ServerControl.ConsolaAdministracion
+servicios/ServerRecieveAlarmServicePrx.java
+ servicios.ServerRecieveAlarmServicePrx
 servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 modelo/Maquina.java
  modelo.Maquina
-servicios/Moneda.java
- servicios.Moneda
-ServidorCentral.java
- ServidorCentral
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
-servicios/AlarmaServicePrx.java
- servicios.AlarmaServicePrx
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
+servicios/_SuscriberPrxI.java
+ servicios._SuscriberPrxI
 comunicacion/ControlComLogistica.java
  comunicacion.ControlComLogistica
+modelo/VentasReceta.java
+ modelo.VentasReceta
+modelo/Receta.java
+ modelo.Receta
+servicios/_ServerRecieveAlarmServicePrxI.java
+ servicios._ServerRecieveAlarmServicePrxI
+servicios/AlarmaService.java
+ servicios.AlarmaService
+ servicios.AlarmaService$1
+servicios/StringSeqHelper.java
+ servicios.StringSeqHelper
+servicios/ServicioAbastecimiento.java
+ servicios.ServicioAbastecimiento
+ servicios.ServicioAbastecimiento$1
+servicios/_PublisherPrxI.java
+ servicios._PublisherPrxI
+interfaz/ControladorRecetas.java
+ interfaz.ControladorRecetas
+ interfaz.ControladorRecetas$1
+ interfaz.ControladorRecetas$2
+ interfaz.ControladorRecetas$3
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
+servicios/RecetaServicePrx.java
+ servicios.RecetaServicePrx
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServerRecieveAlarmService.java
+ servicios.ServerRecieveAlarmService
+ servicios.ServerRecieveAlarmService$1
+receta/ProductoReceta.java
+ receta.ProductoReceta
+servicios/_ServicioComLogisticaPrxI.java
+ servicios._ServicioComLogisticaPrxI
+servicios/ServicioAbastecimientoPrx.java
+ servicios.ServicioAbastecimientoPrx
+servicios/Moneda.java
+ servicios.Moneda
+servicios/SuscriberPrx.java
+ servicios.SuscriberPrx
+servicios/AlarmaServicePrx.java
+ servicios.AlarmaServicePrx
+servicios/Suscriber.java
+ servicios.Suscriber
+ servicios.Suscriber$1
+servicios/PublisherPrx.java
+ servicios.PublisherPrx
+servicios/Publisher.java
+ servicios.Publisher
+ servicios.Publisher$1
 interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
-modelo/Receta.java
- modelo.Receta
 modelo/VentasMaquina.java
  modelo.VentasMaquina
-servicios/AlarmaService.java
- servicios.AlarmaService
- servicios.AlarmaService$1
+ServerReceiveAlarmServiceI.java
+ ServerReceiveAlarmServiceI
 modelo/AsignacionMaquina.java
  modelo.AsignacionMaquina
-servicios/StringSeqHelper.java
- servicios.StringSeqHelper
 modelo/RecetaIngrediente.java
  modelo.RecetaIngrediente
 servicios/VentaServicePrx.java
  servicios.VentaServicePrx
 modelo/ConexionBD.java
  modelo.ConexionBD
-interfaz/ControladorRecetas.java
- interfaz.ControladorRecetas
- interfaz.ControladorRecetas$1
- interfaz.ControladorRecetas$2
- interfaz.ControladorRecetas$3
-modelo/VentasReceta.java
- modelo.VentasReceta
-servicios/ServicioAbastecimiento.java
- servicios.ServicioAbastecimiento
- servicios.ServicioAbastecimiento$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
 servicios/BrokerServicePrx.java
  servicios.BrokerServicePrx
 servicios/BrokerService.java
@@ -92,3 +113,5 @@ servicios/BrokerService.java
  servicios.BrokerService$1
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
+ServidorCentral.java
+ ServidorCentral

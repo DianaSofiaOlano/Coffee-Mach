@@ -1,74 +1,53 @@
+import java.util.ArrayList;
+
 import com.zeroc.Ice.Current;
 
+import servicios.AlarmaServicePrx;
 import servicios.BrokerService;
+import servicios.ServerRecieveAlarmServicePrx;
+
+
 
 public class BrokerI implements BrokerService {
 
-  @Override
-  public void locateClient(String clientName, Current current) {
-    System.out.println("LocateClient: " + clientName);
+  /* Servidores Centrales */
+  private ArrayList<ServerRecieveAlarmServicePrx> servers;
+  private int currentServerIndex;
+
+  public BrokerI() {
+    servers = new ArrayList<ServerRecieveAlarmServicePrx>();
+    currentServerIndex = 0;
+  }
+  // Función para localizar un servidor central disponible
+  private ServerRecieveAlarmServicePrx locateServer() {
+
+    if (servers.size() == 0) return null;
+    
+    ServerRecieveAlarmServicePrx selectedServer = servers.get(currentServerIndex);
+    currentServerIndex = (currentServerIndex + 1) % servers.size();
+    return selectedServer;
   }
 
   @Override
-  public void locateServer(String serverName, Current current) {
-    System.out.println("LocateServer: " + serverName);
+  public void registerServer(ServerRecieveAlarmServicePrx serverToRegister, Current current) {
+    servers.add(serverToRegister);
+    System.out.println("Server registrado: " + serverToRegister.toString());
   }
 
   @Override
-  public void sendRequest(String clientName, String serverName, String request, Current current) {
-    System.out.println("SendRequest: " + clientName + " " + serverName + " " + request);
+  public void unregisterServer(ServerRecieveAlarmServicePrx serverToUnregister, Current current) {
+    servers.remove(serverToUnregister);
+    System.out.println("Server eliminado: " + serverToUnregister.toString());
   }
 
   @Override
-  public void sendResponse(String serverName, String clientName, String response, Current current) {
-    System.out.println("SendResponse: " + serverName + " " + clientName + " " + response);
+  public void sendAlarm(AlarmaServicePrx alarmaServicePrx, Current current) {
+    ServerRecieveAlarmServicePrx server = locateServer();
+    try {
+      server.receiveAlarm(alarmaServicePrx);
+    } catch (Exception e) {
+      System.err.println("Error al procesar la alarma en el servidor: " + server.toString());
+    }
   }
-
-  @Override
-  public void registerServer(String serverName, Current current) {
-    System.out.println("RegisterServer: " + serverName);
-  }
-
-  @Override
-  public void receiveAck(String serverName, String clientName, Current current) {
-    System.out.println("ReceiveAck: " + serverName + " " + clientName);
-  }
-
-  @Override
-  public void registerClient(String clientName, Current current) {
-    System.out.println("RegisterClient: " + clientName);
-  }
-
-  @Override
-  public void receiveActualization(String serverName, String clientName, Current current) {
-    System.out.println("ReceiveActualization: " + serverName + " " + clientName);
-  }
-
-  @Override
-  public void sendAlarm(String serverName, String clientName, Current current) {
-    System.out.println("SendAlarm: " + serverName + " " + clientName);
-  }
-
-  @Override
-  public void unregisterClient(String clientName, Current current) {
-    System.out.println("UnregisterClient: " + clientName);
-  }
-
-  @Override
-  public void unregisterServer(String serverName, Current current) {
-    System.out.println("UnregisterServer: " + serverName);
-  }
-
-  @Override
-  public void _notify(String serverName, String clientName, Current current) {
-    System.out.println("Notify: " + serverName + " " + clientName);
-  }
-
-  @Override
-  public void subscribe(String serverName, String clientName, Current current) {
-    System.out.println("Subscribe: " + serverName + " " + clientName);
-  }
-        
-        
-
+  
 }
