@@ -233,58 +233,55 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void _notify(ClientSubscriberPrx subscriber)
+    default void _notify()
     {
-        _notify(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        _notify(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void _notify(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default void _notify(java.util.Map<String, String> context)
     {
-        _iceI_notifyAsync(subscriber, context, true).waitForResponse();
+        _iceI_notifyAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync(ClientSubscriberPrx subscriber)
+    default java.util.concurrent.CompletableFuture<Void> notifyAsync()
     {
-        return _iceI_notifyAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_notifyAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> notifyAsync(java.util.Map<String, String> context)
     {
-        return _iceI_notifyAsync(subscriber, context, false);
+        return _iceI_notifyAsync(context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_subscriber -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAsync(ClientSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notify", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_subscriber);
-                 }, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
-    default void subscribe(ServerSubscriberPrx subscriber)
+    default void subscribe(ClientSubscriberPrx subscriber)
     {
         subscribe(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void subscribe(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default void subscribe(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
     {
         _iceI_subscribeAsync(subscriber, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ServerSubscriberPrx subscriber)
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ClientSubscriberPrx subscriber)
     {
         return _iceI_subscribeAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ServerSubscriberPrx subscriber, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
     {
         return _iceI_subscribeAsync(subscriber, context, false);
     }
@@ -296,7 +293,7 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(ServerSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(ClientSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "subscribe", null, sync, null);
         f.invoke(false, context, null, ostr -> {

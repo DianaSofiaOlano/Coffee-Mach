@@ -65,17 +65,17 @@ module servicios{
 
     }
 
-    interface ServerSubscriber{
-      void notify();
-      void subscribe();
-      void sendAlarm(AlarmaService* alarmaService);
-    }
-
-    interface ClientSubscriber{
+     interface ClientSubscriber{
       void notify();
       void receiveUpdate();
     };
 
+    interface ServerSubscriber{
+      void notify();
+      void subscribe(ClientSubscriber* subscriber);
+      void unsubscribe(ClientSubscriber* subscriber);
+      void sendAlarm(AlarmaService* alarmaService);
+    }
 
     interface BrokerService{
          void registerServer(ServerSubscriber* subscriber);
@@ -84,8 +84,8 @@ module servicios{
          void sendAlarm(AlarmaService* alarmaService);
          void unregisterClient(ClientSubscriber* subscriber);
          void unregisterServer(ServerSubscriber* subscriber);
-         void notify(ClientSubscriber* subscriber);
-         void subscribe(ServerSubscriber* subscriber);
+         void notify();
+         void subscribe(ClientSubscriber* subscriber);
         }
 
     

@@ -61,11 +61,11 @@ servicios/_ClientSubscriberPrxI.java
  servicios._ClientSubscriberPrxI
 servicios/ClientSubscriberPrx.java
  servicios.ClientSubscriberPrx
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
 servicios/ClientSubscriber.java
  servicios.ClientSubscriber
  servicios.ClientSubscriber$1
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/ServerSubscriberPrx.java
  servicios.ServerSubscriberPrx
 servicios/_ServerSubscriberPrxI.java

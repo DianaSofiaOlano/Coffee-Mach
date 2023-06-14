@@ -19,7 +19,9 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
 {
     void _notify(com.zeroc.Ice.Current current);
 
-    void subscribe(com.zeroc.Ice.Current current);
+    void subscribe(ClientSubscriberPrx subscriber, com.zeroc.Ice.Current current);
+
+    void unsubscribe(ClientSubscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     void sendAlarm(AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
@@ -72,8 +74,29 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_subscribe(ServerSubscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        obj.subscribe(current);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        ClientSubscriberPrx iceP_subscriber;
+        iceP_subscriber = ClientSubscriberPrx.uncheckedCast(istr.readProxy());
+        inS.endReadParams();
+        obj.subscribe(iceP_subscriber, current);
+        return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unsubscribe(ServerSubscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        com.zeroc.Ice.InputStream istr = inS.startReadParams();
+        ClientSubscriberPrx iceP_subscriber;
+        iceP_subscriber = ClientSubscriberPrx.uncheckedCast(istr.readProxy());
+        inS.endReadParams();
+        obj.unsubscribe(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -104,7 +127,8 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
         "ice_ping",
         "notify",
         "sendAlarm",
-        "subscribe"
+        "subscribe",
+        "unsubscribe"
     };
 
     /** @hidden */
@@ -147,6 +171,10 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
             case 6:
             {
                 return _iceD_subscribe(this, in, current);
+            }
+            case 7:
+            {
+                return _iceD_unsubscribe(this, in, current);
             }
         }
 

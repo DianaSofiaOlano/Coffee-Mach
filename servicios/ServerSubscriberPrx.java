@@ -50,36 +50,75 @@ public interface ServerSubscriberPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void subscribe()
+    default void subscribe(ClientSubscriberPrx subscriber)
     {
-        subscribe(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        subscribe(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void subscribe(java.util.Map<String, String> context)
+    default void subscribe(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
     {
-        _iceI_subscribeAsync(context, true).waitForResponse();
+        _iceI_subscribeAsync(subscriber, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync()
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ClientSubscriberPrx subscriber)
     {
-        return _iceI_subscribeAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_subscribeAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
     {
-        return _iceI_subscribeAsync(context, false);
+        return _iceI_subscribeAsync(subscriber, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_subscriber -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(ClientSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "subscribe", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeProxy(iceP_subscriber);
+                 }, null);
+        return f;
+    }
+
+    default void unsubscribe(ClientSubscriberPrx subscriber)
+    {
+        unsubscribe(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void unsubscribe(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
+    {
+        _iceI_unsubscribeAsync(subscriber, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> unsubscribeAsync(ClientSubscriberPrx subscriber)
+    {
+        return _iceI_unsubscribeAsync(subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> unsubscribeAsync(ClientSubscriberPrx subscriber, java.util.Map<String, String> context)
+    {
+        return _iceI_unsubscribeAsync(subscriber, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_subscriber -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_unsubscribeAsync(ClientSubscriberPrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "unsubscribe", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeProxy(iceP_subscriber);
+                 }, null);
         return f;
     }
 

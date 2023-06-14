@@ -1,12 +1,10 @@
 import java.util.ArrayList;
-import java.util.Random;
 
 import com.zeroc.Ice.Current;
 
 import servicios.AlarmaServicePrx;
 import servicios.BrokerService;
 import servicios.ClientSubscriberPrx;
-import servicios.RecetaServicePrx;
 import servicios.ServerSubscriberPrx;
 
 
@@ -37,7 +35,13 @@ public class BrokerI implements BrokerService {
 
   @Override
   public void receiveUpdate(ClientSubscriberPrx clientSubscriberPrx, Current current) {
-    clientSubscriberPrx.receiveUpdate();
+    for (ClientSubscriberPrx client : clients) {
+            try {
+                client.receiveUpdate();
+            } catch (Exception e) {
+                // Manejar excepciones al notificar a los clientes desde el broker
+            }
+        }
   }
 
   @Override
@@ -57,13 +61,19 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void _notify(ClientSubscriberPrx clientSubscriberPrx,Current current) {
-    clientSubscriberPrx._notify();
+  public void _notify(Current current) {
+    for (ServerSubscriberPrx server : servers) {
+            try {
+                server.notify();
+            } catch (Exception e) {
+                // Manejar excepciones al notificar a los clientes desde el servidor
+            }
+        }
   }
 
   @Override
-  public void subscribe(ServerSubscriberPrx serverSubscriberPrx, Current current) {
-    serverSubscriberPrx.subscribe();
+  public void subscribe(ClientSubscriberPrx clientSubscriberPrx, Current current) {
+    locateServer().subscribe(clientSubscriberPrx);
   }
       
 }
