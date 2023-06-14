@@ -7,7 +7,7 @@ public class Broker {
         try(com.zeroc.Ice.Communicator communicator = com.zeroc.Ice.Util.initialize(args))
         {
             // Crear un adaptador de objetos
-            ObjectAdapter adapter = communicator.createObjectAdapterWithEndpoints("BrokerAdapter", "default -p 10000");
+            ObjectAdapter adapter = communicator.createObjectAdapter("BrokerAdapter");
 
             // Crear una instancia del Broker
             BrokerI broker = new BrokerI();
