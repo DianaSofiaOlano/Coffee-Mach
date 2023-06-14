@@ -57,13 +57,13 @@ public class BrokerI implements BrokerService {
   }
 
   @Override
-  public void _notify(ServerSubscriberPrx serverSubscriberPrx,Current current) {
-    serverSubscriberPrx._notify();
+  public void _notify(ClientSubscriberPrx clientSubscriberPrx,Current current) {
+    clientSubscriberPrx._notify();
   }
 
   @Override
-  public void subscribe(ClientSubscriberPrx serverToUnregister, Current current) {
-    
+  public void subscribe(ServerSubscriberPrx serverSubscriberPrx, Current current) {
+    serverSubscriberPrx.subscribe();
   }
       
 }

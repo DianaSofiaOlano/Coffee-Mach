@@ -50,6 +50,39 @@ public interface ServerSubscriberPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default void subscribe()
+    {
+        subscribe(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void subscribe(java.util.Map<String, String> context)
+    {
+        _iceI_subscribeAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync()
+    {
+        return _iceI_subscribeAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> subscribeAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_subscribeAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_subscribeAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "subscribe", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
     default void sendAlarm(AlarmaServicePrx alarmaService)
     {
         sendAlarm(alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);

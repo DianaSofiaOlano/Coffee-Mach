@@ -29,9 +29,9 @@ public interface BrokerService extends com.zeroc.Ice.Object
 
     void unregisterServer(ServerSubscriberPrx subscriber, com.zeroc.Ice.Current current);
 
-    void _notify(ServerSubscriberPrx subscriber, com.zeroc.Ice.Current current);
+    void _notify(ClientSubscriberPrx subscriber, com.zeroc.Ice.Current current);
 
-    void subscribe(ClientSubscriberPrx subscriber, com.zeroc.Ice.Current current);
+    void subscribe(ServerSubscriberPrx subscriber, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -176,8 +176,8 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ServerSubscriberPrx iceP_subscriber;
-        iceP_subscriber = ServerSubscriberPrx.uncheckedCast(istr.readProxy());
+        ClientSubscriberPrx iceP_subscriber;
+        iceP_subscriber = ClientSubscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
         obj._notify(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());
@@ -194,8 +194,8 @@ public interface BrokerService extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        ClientSubscriberPrx iceP_subscriber;
-        iceP_subscriber = ClientSubscriberPrx.uncheckedCast(istr.readProxy());
+        ServerSubscriberPrx iceP_subscriber;
+        iceP_subscriber = ServerSubscriberPrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();
         obj.subscribe(iceP_subscriber, current);
         return inS.setResult(inS.writeEmptyParams());

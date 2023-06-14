@@ -19,7 +19,7 @@ public interface ClientSubscriber extends com.zeroc.Ice.Object
 {
     void _notify(com.zeroc.Ice.Current current);
 
-    void receiveUpdate(RecetaServicePrx recetaService, com.zeroc.Ice.Current current);
+    void receiveUpdate(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -70,11 +70,8 @@ public interface ClientSubscriber extends com.zeroc.Ice.Object
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveUpdate(ClientSubscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RecetaServicePrx iceP_recetaService;
-        iceP_recetaService = RecetaServicePrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        obj.receiveUpdate(iceP_recetaService, current);
+        inS.readEmptyParams();
+        obj.receiveUpdate(current);
         return inS.setResult(inS.writeEmptyParams());
     }
 

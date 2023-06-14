@@ -67,6 +67,7 @@ module servicios{
 
     interface ServerSubscriber{
       void notify();
+      void subscribe();
       void sendAlarm(AlarmaService* alarmaService);
     }
 
@@ -83,8 +84,8 @@ module servicios{
          void sendAlarm(AlarmaService* alarmaService);
          void unregisterClient(ClientSubscriber* subscriber);
          void unregisterServer(ServerSubscriber* subscriber);
-         void notify(ServerSubscriber* subscriber);
-         void subscribe(ClientSubscriber* subscriber);
+         void notify(ClientSubscriber* subscriber);
+         void subscribe(ServerSubscriber* subscriber);
         }
 
     

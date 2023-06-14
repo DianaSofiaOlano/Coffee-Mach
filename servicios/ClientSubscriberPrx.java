@@ -50,39 +50,36 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void receiveUpdate(RecetaServicePrx recetaService)
+    default void receiveUpdate()
     {
-        receiveUpdate(recetaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        receiveUpdate(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void receiveUpdate(RecetaServicePrx recetaService, java.util.Map<String, String> context)
+    default void receiveUpdate(java.util.Map<String, String> context)
     {
-        _iceI_receiveUpdateAsync(recetaService, context, true).waitForResponse();
+        _iceI_receiveUpdateAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync(RecetaServicePrx recetaService)
+    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync()
     {
-        return _iceI_receiveUpdateAsync(recetaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_receiveUpdateAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync(RecetaServicePrx recetaService, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync(java.util.Map<String, String> context)
     {
-        return _iceI_receiveUpdateAsync(recetaService, context, false);
+        return _iceI_receiveUpdateAsync(context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_recetaService -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveUpdateAsync(RecetaServicePrx iceP_recetaService, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveUpdateAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveUpdate", null, sync, null);
-        f.invoke(false, context, null, ostr -> {
-                     ostr.writeProxy(iceP_recetaService);
-                 }, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 

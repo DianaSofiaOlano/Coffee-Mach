@@ -99,24 +99,24 @@ interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas$3
 modelo/VentasReceta.java
  modelo.VentasReceta
-servicios/ServerSubscriber.java
- servicios.ServerSubscriber
- servicios.ServerSubscriber$1
-servicios/_ServerSubscriberPrxI.java
- servicios._ServerSubscriberPrxI
-servicios/ServerSubscriberPrx.java
- servicios.ServerSubscriberPrx
 servicios/_ClientSubscriberPrxI.java
  servicios._ClientSubscriberPrxI
 servicios/ClientSubscriberPrx.java
  servicios.ClientSubscriberPrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/ClientSubscriber.java
  servicios.ClientSubscriber
  servicios.ClientSubscriber$1
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
+servicios/ServerSubscriberPrx.java
+ servicios.ServerSubscriberPrx
+servicios/_ServerSubscriberPrxI.java
+ servicios._ServerSubscriberPrxI
 servicios/BrokerService.java
  servicios.BrokerService
  servicios.BrokerService$1
 servicios/_BrokerServicePrxI.java
  servicios._BrokerServicePrxI
+servicios/ServerSubscriber.java
+ servicios.ServerSubscriber
+ servicios.ServerSubscriber$1
