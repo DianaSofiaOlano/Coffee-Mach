@@ -24,8 +24,8 @@ servicios/_RecetaServicePrxI.java
  servicios._RecetaServicePrxI
 servicios/Moneda.java
  servicios.Moneda
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
+BrokerI.java
+ BrokerI
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -62,12 +62,12 @@ servicios/BrokerService.java
  servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
+Broker.java
+ Broker
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-Broker.java
- Broker
-BrokerI.java
- BrokerI
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
