@@ -12,10 +12,17 @@ public class BrokerI implements BrokerService {
 
   /* Servidores Centrales */
   private ArrayList<ServerRecieveAlarmServicePrx> servers;
-  private int currentServerIndex = 0;
+  private int currentServerIndex;
 
+  public BrokerI() {
+    servers = new ArrayList<ServerRecieveAlarmServicePrx>();
+    currentServerIndex = 0;
+  }
   // Función para localizar un servidor central disponible
   private ServerRecieveAlarmServicePrx locateServer() {
+
+    if (servers.size() == 0) return null;
+    
     ServerRecieveAlarmServicePrx selectedServer = servers.get(currentServerIndex);
     currentServerIndex = (currentServerIndex + 1) % servers.size();
     return selectedServer;
