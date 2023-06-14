@@ -89,22 +89,22 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService)
+    default void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService)
     {
         sendAlarm(codMaquina, type, idInsumo, idSumin, idIngrediente, cantidad, moneda, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
         _iceI_sendAlarmAsync(codMaquina, type, idInsumo, idSumin, idIngrediente, cantidad, moneda, alarmaService, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService)
+    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService)
     {
         return _iceI_sendAlarmAsync(codMaquina, type, idInsumo, idSumin, idIngrediente, cantidad, moneda, alarmaService, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> sendAlarmAsync(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService, java.util.Map<String, String> context)
     {
         return _iceI_sendAlarmAsync(codMaquina, type, idInsumo, idSumin, idIngrediente, cantidad, moneda, alarmaService, context, false);
     }
@@ -123,7 +123,7 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendAlarmAsync(int iceP_codMaquina, String iceP_type, String iceP_idInsumo, String iceP_idSumin, String iceP_idIngrediente, int iceP_cantidad, Moneda iceP_moneda, AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_sendAlarmAsync(int iceP_codMaquina, String iceP_type, String iceP_idInsumo, String iceP_idSumin, String iceP_idIngrediente, double iceP_cantidad, Moneda iceP_moneda, AlarmaServicePrx iceP_alarmaService, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "sendAlarm", null, sync, null);
         f.invoke(false, context, null, ostr -> {
@@ -132,7 +132,7 @@ public interface BrokerServicePrx extends com.zeroc.Ice.ObjectPrx
                      ostr.writeString(iceP_idInsumo);
                      ostr.writeString(iceP_idSumin);
                      ostr.writeString(iceP_idIngrediente);
-                     ostr.writeInt(iceP_cantidad);
+                     ostr.writeDouble(iceP_cantidad);
                      Moneda.ice_write(ostr, iceP_moneda);
                      ostr.writeProxy(iceP_alarmaService);
                  }, null);

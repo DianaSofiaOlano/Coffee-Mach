@@ -21,7 +21,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
 
     void unregisterServer(ServerRecieveAlarmServicePrx subscriber, com.zeroc.Ice.Current current);
 
-    void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, int cantidad, Moneda moneda, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void sendAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -99,7 +99,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
         String iceP_idInsumo;
         String iceP_idSumin;
         String iceP_idIngrediente;
-        int iceP_cantidad;
+        double iceP_cantidad;
         Moneda iceP_moneda;
         AlarmaServicePrx iceP_alarmaService;
         iceP_codMaquina = istr.readInt();
@@ -107,7 +107,7 @@ public interface BrokerService extends com.zeroc.Ice.Object
         iceP_idInsumo = istr.readString();
         iceP_idSumin = istr.readString();
         iceP_idIngrediente = istr.readString();
-        iceP_cantidad = istr.readInt();
+        iceP_cantidad = istr.readDouble();
         iceP_moneda = Moneda.ice_read(istr);
         iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
         inS.endReadParams();

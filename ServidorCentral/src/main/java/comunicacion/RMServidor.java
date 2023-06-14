@@ -1,14 +1,23 @@
 import java.io.*;
 import java.net.Socket;
+import servicios.RMservice;
 
-public class RMServidor2 {
+public class RMServidor implements RMservice{
 
   // Atributos
-
+  private Orden orden;
   // Registro de órdenes enviadas
   private Set<String> processedOrders = new HashSet<>();
 
-  public void sendOrders(Orden orden) {
+  public void sendOrders(int idOrder, int idMaquina, int idOperador, string fecha, string ubicacion, ItemsOrden itemsOrden) {
+    
+    this.orden.setId(idOrder);
+    this.orden.setIdMaquinaCafe(idMaquina);
+    this.orden.setIdOperador(idOperador);
+    this.orden.setUbicacion(ubicacion);
+    this.orden.setItemsOrden(itemsOrden);
+
+    
     String bodegaHost = "idkYet";
     int bodegaPort = 12345;
 

@@ -15,15 +15,15 @@
 
 package servicios;
 
-public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
+public interface RMService extends com.zeroc.Ice.Object
 {
-    void receiveAlarm(int codMaquina, String type, String idInsumo, String idSumin, String idIngrediente, double cantidad, Moneda moneda, AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void sendOrders(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::ServerRecieveAlarmService"
+        "::servicios::RMService"
     };
 
     @Override
@@ -40,7 +40,7 @@ public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::ServerRecieveAlarmService";
+        return "::servicios::RMService";
     }
 
     /**
@@ -50,28 +50,24 @@ public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_receiveAlarm(ServerRecieveAlarmService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendOrders(RMService obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_codMaquina;
-        String iceP_type;
-        String iceP_idInsumo;
-        String iceP_idSumin;
-        String iceP_idIngrediente;
-        double iceP_cantidad;
-        Moneda iceP_moneda;
-        AlarmaServicePrx iceP_alarmaService;
-        iceP_codMaquina = istr.readInt();
-        iceP_type = istr.readString();
-        iceP_idInsumo = istr.readString();
-        iceP_idSumin = istr.readString();
-        iceP_idIngrediente = istr.readString();
-        iceP_cantidad = istr.readDouble();
-        iceP_moneda = Moneda.ice_read(istr);
-        iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
+        int iceP_idOrder;
+        int iceP_idMaquina;
+        int iceP_idOperador;
+        String iceP_fecha;
+        String iceP_ubicacion;
+        int[] iceP_itemsOrden;
+        iceP_idOrder = istr.readInt();
+        iceP_idMaquina = istr.readInt();
+        iceP_idOperador = istr.readInt();
+        iceP_fecha = istr.readString();
+        iceP_ubicacion = istr.readString();
+        iceP_itemsOrden = istr.readIntSeq();
         inS.endReadParams();
-        obj.receiveAlarm(iceP_codMaquina, iceP_type, iceP_idInsumo, iceP_idSumin, iceP_idIngrediente, iceP_cantidad, iceP_moneda, iceP_alarmaService, current);
+        obj.sendOrders(iceP_idOrder, iceP_idMaquina, iceP_idOperador, iceP_fecha, iceP_ubicacion, iceP_itemsOrden, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -82,7 +78,7 @@ public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "receiveAlarm"
+        "sendOrders"
     };
 
     /** @hidden */
@@ -116,7 +112,7 @@ public interface ServerRecieveAlarmService extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_receiveAlarm(this, in, current);
+                return _iceD_sendOrders(this, in, current);
             }
         }
 

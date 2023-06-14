@@ -9,6 +9,7 @@ module servicios{
 
     dictionary<string,int> MapStrInt;
 
+    sequence<int> ItemsOrden;
 
     interface ServicioComLogistica{
 
@@ -17,6 +18,10 @@ module servicios{
 	    bool inicioSesion(int codigoOperador, string password);
     }
 
+    interface RMService{
+        void sendOrders(int idOrder, int idMaquina, int idOperador, string fecha, string ubicacion, ItemsOrden itemsOrden);
+    }
+    
     interface ServicioAbastecimiento {
 	   void abastecer(int codMaquina, int tipoAlarma);
     }
