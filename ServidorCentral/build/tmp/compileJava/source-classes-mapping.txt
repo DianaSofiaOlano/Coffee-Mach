@@ -1,5 +1,7 @@
 servicios/RecetaServicePrx.java
  servicios.RecetaServicePrx
+servicios/BrokerServicePrx.java
+ servicios.BrokerServicePrx
 servicios/_ServicioAbastecimientoPrxI.java
  servicios._ServicioAbastecimientoPrxI
 alarma/Alarma.java
@@ -23,10 +25,10 @@ modelo/ManejadorDatos.java
  modelo.ManejadorDatos
 servicios/ServicioAbastecimientoPrx.java
  servicios.ServicioAbastecimientoPrx
-ventas/VentasManager.java
- ventas.VentasManager
 alarma/AlarmasManager.java
  alarma.AlarmasManager
+ventas/VentasManager.java
+ ventas.VentasManager
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
@@ -38,8 +40,8 @@ modelo/Maquina.java
  modelo.Maquina
 servicios/Moneda.java
  servicios.Moneda
-ServidorCentral.java
- ServidorCentral
+servicios/ServicioComLogisticaPrx.java
+ servicios.ServicioComLogisticaPrx
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
@@ -64,6 +66,8 @@ interfaz/InterfazRecetas.java
  interfaz.InterfazRecetas
 modelo/Ingrediente.java
  modelo.Ingrediente
+servicios/_BrokerServicePrxI.java
+ servicios._BrokerServicePrxI
 modelo/Receta.java
  modelo.Receta
 modelo/VentasMaquina.java
@@ -83,6 +87,9 @@ modelo/ConexionBD.java
  modelo.ConexionBD
 servicios/SuscriberPrx.java
  servicios.SuscriberPrx
+servicios/BrokerService.java
+ servicios.BrokerService
+ servicios.BrokerService$1
 servicios/_PublisherPrxI.java
  servicios._PublisherPrxI
 interfaz/ControladorRecetas.java
@@ -92,17 +99,12 @@ interfaz/ControladorRecetas.java
  interfaz.ControladorRecetas$3
 modelo/VentasReceta.java
  modelo.VentasReceta
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper
-servicios/ServicioComLogisticaPrx.java
- servicios.ServicioComLogisticaPrx
-servicios/BrokerServicePrx.java
- servicios.BrokerServicePrx
-servicios/BrokerService.java
- servicios.BrokerService
- servicios.BrokerService$1
-servicios/_BrokerServicePrxI.java
- servicios._BrokerServicePrxI
+receta/PublisherProxyImpl.java
+ receta.PublisherProxyImpl
+ServidorCentral.java
+ ServidorCentral
