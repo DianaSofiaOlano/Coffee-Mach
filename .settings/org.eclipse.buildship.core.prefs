@@ -1,7 +1,7 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
 >>>>>>>=b7bf3dba7d67bd86afcd524ff3d76232b2fe3c1d
-arguments=--init-script C\:\\Users\\Usuario\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.19.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\Usuario\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.19.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\protobuf\\init.gradle
+arguments=--init-script C\:\\Users\\Diana\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.19.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle --init-script C\:\\Users\\Diana\\AppData\\Roaming\\Code\\User\\globalStorage\\redhat.java\\1.19.0\\config_win\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\protobuf\\init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(7.4.2))

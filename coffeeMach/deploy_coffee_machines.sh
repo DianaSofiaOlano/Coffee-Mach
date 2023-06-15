@@ -34,6 +34,12 @@ ip_list=(
   "10.147.19.212"
 )
 
+# Variable que indica la cantidad de máquinas a desplegar por computadora
+maquinas_por_computadora=5
+
+# Contador para generar nombres de carpeta únicos
+counter=1
+
 for ip in "${ip_list[@]}"
 do
     echo "Desplegando máquina de café en $ip..."
@@ -53,20 +59,26 @@ do
     # Construir la ruta completa de la carpeta "libs"
     libs_folder="$script_dir/build/libs"
 
-    # Nombre de la carpeta que se creará en el computador externo
-    carpeta_externa="coffeeMachines_jjdd_finalProject"
+    for ((i=1; i<=maquinas_por_computadora; i++))
+    do
+        # Nombre de la carpeta que se creará en el computador externo
+        carpeta_externa="coffeeMachines_jjdd_finalProject_$counter"
 
-    # Directorio de destino en el computador externo
-    destino="/home/swarch/$carpeta_externa"
+        # Directorio de destino en el computador externo
+        destino="/home/swarch/$carpeta_externa"
 
-    # Verificar si la carpeta de destino existe en el computador externo y borrarla si es así
-    sshpass -p "swarch" swarch@"$ip":"if [ -d $destino ]; then rm -rf $destino; fi"
+        # Verificar si la carpeta de destino existe en el computador externo y borrarla si es así
+        sshpass -p "swarch" swarch@"$ip":"if [ -d $destino ]; then rm -rf $destino; fi"
 
-    # Crear una carpeta de destino en el computador externo
-    sshpass -p "swarch" swarch@"$ip":"mkdir -p $destino"
+        # Crear una carpeta de destino en el computador externo
+        sshpass -p "swarch" swarch@"$ip":"mkdir -p $destino"
 
-    # Copiar la carpeta "Libs" al computador externo
-    sshpass -p "swarch" scp -r "$libs_folder" swarch@"$ip":"$destino"
-        
-    echo "Despliegue maquina $i completado en $ip"
+        # Copiar la carpeta "Libs" al computador externo
+        sshpass -p "swarch" scp -r "$libs_folder" swarch@"$ip":"$destino"
+            
+        echo "Despliegue máquina $counter completado en $ip"
+
+        # Incrementar el contador
+        ((counter++))
+    done
 done
