@@ -15,13 +15,18 @@ servicios/_VentaServicePrxI.java
  servicios._VentaServicePrxI
 modelo/ManejadorDatos.java
  modelo.ManejadorDatos
-ventas/VentasManager.java
- ventas.VentasManager
+servicios/_RMReceiverPrxI.java
+ servicios._RMReceiverPrxI
 alarma/AlarmasManager.java
  alarma.AlarmasManager
+ventas/VentasManager.java
+ ventas.VentasManager
 servicios/VentaService.java
  servicios.VentaService
  servicios.VentaService$1
+servicios/RMReceiver.java
+ servicios.RMReceiver
+ servicios.RMReceiver$1
 ServerControl/ConsolaAdministracion.java
  ServerControl.ConsolaAdministracion
 servicios/ServerRecieveAlarmServicePrx.java
@@ -33,6 +38,8 @@ modelo/Maquina.java
 servicios/ServicioComLogistica.java
  servicios.ServicioComLogistica
  servicios.ServicioComLogistica$1
+servicios/RMReceiverPrx.java
+ servicios.RMReceiverPrx
 servicios/RecetaService.java
  servicios.RecetaService
  servicios.RecetaService$1
@@ -112,8 +119,8 @@ receta/PublisherProxyImpl.java
  receta.PublisherProxyImpl
 modelo/VentasReceta.java
  modelo.VentasReceta
+servicios/MapStrIntHelper.java
+ servicios.MapStrIntHelper
 servicios/ServicioAbastecimiento.java
  servicios.ServicioAbastecimiento
  servicios.ServicioAbastecimiento$1
-servicios/MapStrIntHelper.java
- servicios.MapStrIntHelper

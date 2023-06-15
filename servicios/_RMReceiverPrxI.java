@@ -16,7 +16,7 @@
 package servicios;
 
 /** @hidden */
-public class _RMServicePrxI extends com.zeroc.Ice._ObjectPrxI implements RMServicePrx
+public class _RMReceiverPrxI extends com.zeroc.Ice._ObjectPrxI implements RMReceiverPrx
 {
     /** @hidden */
     public static final long serialVersionUID = 0L;

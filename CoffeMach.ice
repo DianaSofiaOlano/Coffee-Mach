@@ -18,8 +18,8 @@ module servicios{
 	    bool inicioSesion(int codigoOperador, string password);
     }
 
-    interface RMService{
-        void sendOrders(int idOrder, int idMaquina, int idOperador, string fecha, string ubicacion, ItemsOrden itemsOrden);
+    interface RMReceiver{
+        void recibirAlarma(int idOrder, int idMaquina, int idOperador, string fecha, string ubicacion, ItemsOrden itemsOrden);
     }
     
     interface ServicioAbastecimiento {

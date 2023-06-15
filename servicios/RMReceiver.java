@@ -15,15 +15,15 @@
 
 package servicios;
 
-public interface ServerSubscriber extends com.zeroc.Ice.Object
+public interface RMReceiver extends com.zeroc.Ice.Object
 {
-    void sendAlarm(AlarmaServicePrx alarmaService, com.zeroc.Ice.Current current);
+    void recibirAlarma(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::servicios::ServerSubscriber"
+        "::servicios::RMReceiver"
     };
 
     @Override
@@ -40,7 +40,7 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
 
     static String ice_staticId()
     {
-        return "::servicios::ServerSubscriber";
+        return "::servicios::RMReceiver";
     }
 
     /**
@@ -50,14 +50,24 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_sendAlarm(ServerSubscriber obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_recibirAlarma(RMReceiver obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        AlarmaServicePrx iceP_alarmaService;
-        iceP_alarmaService = AlarmaServicePrx.uncheckedCast(istr.readProxy());
+        int iceP_idOrder;
+        int iceP_idMaquina;
+        int iceP_idOperador;
+        String iceP_fecha;
+        String iceP_ubicacion;
+        int[] iceP_itemsOrden;
+        iceP_idOrder = istr.readInt();
+        iceP_idMaquina = istr.readInt();
+        iceP_idOperador = istr.readInt();
+        iceP_fecha = istr.readString();
+        iceP_ubicacion = istr.readString();
+        iceP_itemsOrden = istr.readIntSeq();
         inS.endReadParams();
-        obj.sendAlarm(iceP_alarmaService, current);
+        obj.recibirAlarma(iceP_idOrder, iceP_idMaquina, iceP_idOperador, iceP_fecha, iceP_ubicacion, iceP_itemsOrden, current);
         return inS.setResult(inS.writeEmptyParams());
     }
 
@@ -68,7 +78,7 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
         "ice_ids",
         "ice_isA",
         "ice_ping",
-        "sendAlarm"
+        "recibirAlarma"
     };
 
     /** @hidden */
@@ -102,7 +112,7 @@ public interface ServerSubscriber extends com.zeroc.Ice.Object
             }
             case 4:
             {
-                return _iceD_sendAlarm(this, in, current);
+                return _iceD_recibirAlarma(this, in, current);
             }
         }
 

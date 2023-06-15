@@ -15,71 +15,51 @@
 
 package servicios;
 
-public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
+public interface RMReceiverPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default void _notify()
+    default void recibirAlarma(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden)
     {
-        _notify(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        recibirAlarma(idOrder, idMaquina, idOperador, fecha, ubicacion, itemsOrden, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void _notify(java.util.Map<String, String> context)
+    default void recibirAlarma(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden, java.util.Map<String, String> context)
     {
-        _iceI_notifyAsync(context, true).waitForResponse();
+        _iceI_recibirAlarmaAsync(idOrder, idMaquina, idOperador, fecha, ubicacion, itemsOrden, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync()
+    default java.util.concurrent.CompletableFuture<Void> recibirAlarmaAsync(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden)
     {
-        return _iceI_notifyAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_recibirAlarmaAsync(idOrder, idMaquina, idOperador, fecha, ubicacion, itemsOrden, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> notifyAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> recibirAlarmaAsync(int idOrder, int idMaquina, int idOperador, String fecha, String ubicacion, int[] itemsOrden, java.util.Map<String, String> context)
     {
-        return _iceI_notifyAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_notifyAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notify", null, sync, null);
-        f.invoke(false, context, null, null, null);
-        return f;
-    }
-
-    default void receiveUpdate()
-    {
-        receiveUpdate(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void receiveUpdate(java.util.Map<String, String> context)
-    {
-        _iceI_receiveUpdateAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync()
-    {
-        return _iceI_receiveUpdateAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> receiveUpdateAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_receiveUpdateAsync(context, false);
+        return _iceI_recibirAlarmaAsync(idOrder, idMaquina, idOperador, fecha, ubicacion, itemsOrden, context, false);
     }
 
     /**
      * @hidden
+     * @param iceP_idOrder -
+     * @param iceP_idMaquina -
+     * @param iceP_idOperador -
+     * @param iceP_fecha -
+     * @param iceP_ubicacion -
+     * @param iceP_itemsOrden -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_receiveUpdateAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_recibirAlarmaAsync(int iceP_idOrder, int iceP_idMaquina, int iceP_idOperador, String iceP_fecha, String iceP_ubicacion, int[] iceP_itemsOrden, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "receiveUpdate", null, sync, null);
-        f.invoke(false, context, null, null, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "recibirAlarma", null, sync, null);
+        f.invoke(false, context, null, ostr -> {
+                     ostr.writeInt(iceP_idOrder);
+                     ostr.writeInt(iceP_idMaquina);
+                     ostr.writeInt(iceP_idOperador);
+                     ostr.writeString(iceP_fecha);
+                     ostr.writeString(iceP_ubicacion);
+                     ostr.writeIntSeq(iceP_itemsOrden);
+                 }, null);
         return f;
     }
 
@@ -89,9 +69,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ClientSubscriberPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static RMReceiverPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -101,9 +81,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ClientSubscriberPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static RMReceiverPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -113,9 +93,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ClientSubscriberPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static RMReceiverPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -126,9 +106,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static ClientSubscriberPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static RMReceiverPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -136,9 +116,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static ClientSubscriberPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static RMReceiverPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -147,9 +127,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static ClientSubscriberPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static RMReceiverPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, ClientSubscriberPrx.class, _ClientSubscriberPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, RMReceiverPrx.class, _RMReceiverPrxI.class);
     }
 
     /**
@@ -158,9 +138,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default ClientSubscriberPrx ice_context(java.util.Map<String, String> newContext)
+    default RMReceiverPrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (ClientSubscriberPrx)_ice_context(newContext);
+        return (RMReceiverPrx)_ice_context(newContext);
     }
 
     /**
@@ -169,9 +149,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default ClientSubscriberPrx ice_adapterId(String newAdapterId)
+    default RMReceiverPrx ice_adapterId(String newAdapterId)
     {
-        return (ClientSubscriberPrx)_ice_adapterId(newAdapterId);
+        return (RMReceiverPrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -180,9 +160,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default ClientSubscriberPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default RMReceiverPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (ClientSubscriberPrx)_ice_endpoints(newEndpoints);
+        return (RMReceiverPrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -191,9 +171,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default ClientSubscriberPrx ice_locatorCacheTimeout(int newTimeout)
+    default RMReceiverPrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (ClientSubscriberPrx)_ice_locatorCacheTimeout(newTimeout);
+        return (RMReceiverPrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -202,9 +182,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default ClientSubscriberPrx ice_invocationTimeout(int newTimeout)
+    default RMReceiverPrx ice_invocationTimeout(int newTimeout)
     {
-        return (ClientSubscriberPrx)_ice_invocationTimeout(newTimeout);
+        return (RMReceiverPrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -213,9 +193,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default ClientSubscriberPrx ice_connectionCached(boolean newCache)
+    default RMReceiverPrx ice_connectionCached(boolean newCache)
     {
-        return (ClientSubscriberPrx)_ice_connectionCached(newCache);
+        return (RMReceiverPrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -224,9 +204,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default ClientSubscriberPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default RMReceiverPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (ClientSubscriberPrx)_ice_endpointSelection(newType);
+        return (RMReceiverPrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -237,9 +217,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default ClientSubscriberPrx ice_secure(boolean b)
+    default RMReceiverPrx ice_secure(boolean b)
     {
-        return (ClientSubscriberPrx)_ice_secure(b);
+        return (RMReceiverPrx)_ice_secure(b);
     }
 
     /**
@@ -248,9 +228,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default ClientSubscriberPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default RMReceiverPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (ClientSubscriberPrx)_ice_encodingVersion(e);
+        return (RMReceiverPrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -261,9 +241,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default ClientSubscriberPrx ice_preferSecure(boolean b)
+    default RMReceiverPrx ice_preferSecure(boolean b)
     {
-        return (ClientSubscriberPrx)_ice_preferSecure(b);
+        return (RMReceiverPrx)_ice_preferSecure(b);
     }
 
     /**
@@ -272,9 +252,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default ClientSubscriberPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default RMReceiverPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (ClientSubscriberPrx)_ice_router(router);
+        return (RMReceiverPrx)_ice_router(router);
     }
 
     /**
@@ -283,9 +263,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default ClientSubscriberPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default RMReceiverPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (ClientSubscriberPrx)_ice_locator(locator);
+        return (RMReceiverPrx)_ice_locator(locator);
     }
 
     /**
@@ -294,9 +274,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default ClientSubscriberPrx ice_collocationOptimized(boolean b)
+    default RMReceiverPrx ice_collocationOptimized(boolean b)
     {
-        return (ClientSubscriberPrx)_ice_collocationOptimized(b);
+        return (RMReceiverPrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -304,9 +284,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default ClientSubscriberPrx ice_twoway()
+    default RMReceiverPrx ice_twoway()
     {
-        return (ClientSubscriberPrx)_ice_twoway();
+        return (RMReceiverPrx)_ice_twoway();
     }
 
     /**
@@ -314,9 +294,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default ClientSubscriberPrx ice_oneway()
+    default RMReceiverPrx ice_oneway()
     {
-        return (ClientSubscriberPrx)_ice_oneway();
+        return (RMReceiverPrx)_ice_oneway();
     }
 
     /**
@@ -324,9 +304,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default ClientSubscriberPrx ice_batchOneway()
+    default RMReceiverPrx ice_batchOneway()
     {
-        return (ClientSubscriberPrx)_ice_batchOneway();
+        return (RMReceiverPrx)_ice_batchOneway();
     }
 
     /**
@@ -334,9 +314,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default ClientSubscriberPrx ice_datagram()
+    default RMReceiverPrx ice_datagram()
     {
-        return (ClientSubscriberPrx)_ice_datagram();
+        return (RMReceiverPrx)_ice_datagram();
     }
 
     /**
@@ -344,9 +324,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default ClientSubscriberPrx ice_batchDatagram()
+    default RMReceiverPrx ice_batchDatagram()
     {
-        return (ClientSubscriberPrx)_ice_batchDatagram();
+        return (RMReceiverPrx)_ice_batchDatagram();
     }
 
     /**
@@ -355,9 +335,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default ClientSubscriberPrx ice_compress(boolean co)
+    default RMReceiverPrx ice_compress(boolean co)
     {
-        return (ClientSubscriberPrx)_ice_compress(co);
+        return (RMReceiverPrx)_ice_compress(co);
     }
 
     /**
@@ -366,9 +346,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default ClientSubscriberPrx ice_timeout(int t)
+    default RMReceiverPrx ice_timeout(int t)
     {
-        return (ClientSubscriberPrx)_ice_timeout(t);
+        return (RMReceiverPrx)_ice_timeout(t);
     }
 
     /**
@@ -377,9 +357,9 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default ClientSubscriberPrx ice_connectionId(String connectionId)
+    default RMReceiverPrx ice_connectionId(String connectionId)
     {
-        return (ClientSubscriberPrx)_ice_connectionId(connectionId);
+        return (RMReceiverPrx)_ice_connectionId(connectionId);
     }
 
     /**
@@ -388,13 +368,13 @@ public interface ClientSubscriberPrx extends com.zeroc.Ice.ObjectPrx
      * @return A fixed proxy bound to the given connection.
      **/
     @Override
-    default ClientSubscriberPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    default RMReceiverPrx ice_fixed(com.zeroc.Ice.Connection connection)
     {
-        return (ClientSubscriberPrx)_ice_fixed(connection);
+        return (RMReceiverPrx)_ice_fixed(connection);
     }
 
     static String ice_staticId()
     {
-        return "::servicios::ClientSubscriber";
+        return "::servicios::RMReceiver";
     }
 }
