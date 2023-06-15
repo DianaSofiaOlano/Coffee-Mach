@@ -48,7 +48,7 @@ do
     sed -i "s/CoffeMach.Endpoints = tcp -h localhost -p 12346/CoffeMach.Endpoints = tcp -h $ip -p 12346/g" $machConfiguration
 
     # Build
-    gradle -p coffeeMach build
+    cd "$script_dir" && gradle -p coffeeMach build
 
     # Construir la ruta completa de la carpeta "libs"
     libs_folder="$script_dir/build/libs"
